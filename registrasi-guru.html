@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      type="x-icon"
+      href="assets/img/logo/iconwebIKR.svg"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrasi</title>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      charset="UTF-8"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <!-- ICON -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+    <!-- css -->
+    <link href="assets/css/css-loginguru.css" rel="stylesheet" />
+
+    <link rel="icon" type="image/png" href="/img/iconWebsite.svg" />
+  </head>
+  <body>
+    <div class="bg-card">
+      <div class="card">
+        <h4>Registrasi Guru</h4>
+        <p class="judul-login">Media Interaktif Indonesiaku Kaya Raya</p>
+        <img src="assets/img/logo/user-log.svg" style="margin-bottom: 10px" />
+
+        <div class="login-form">
+          <input
+            class="form-control"
+            type="text"
+            placeholder="*Nama"
+            id="namaInp"
+          />
+
+          <input
+            class="form-control"
+            type="text"
+            placeholder="*NIP"
+            id="NIPInp"
+          />
+
+          <input
+            class="form-control"
+            type="password"
+            placeholder="*Password"
+            id="passInp"
+          />
+
+          <input
+            class="form-control"
+            type="text"
+            placeholder="*Token"
+            id="tokenInp"
+          />
+
+          <button type="text" id="sub_btn" class="btn-daftar">Daftar</button>
+        </div>
+        <a href="login-guru.html" class="buatAKun" style="text-decoration: none"
+          >Sudah memiliki akun?</a
+        >
+      </div>
+    </div>
+    <!-- <img src="assets/img/ilustrasi1.svg" alt="" srcset="" class="svg-img" /> -->
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      $(document).ready(function () {
+        var statusElement = $(".noKoneksi");
+
+        if (navigator.onLine) {
+          $(".noKoneksi").prop("hidden", true);
+        } else {
+          $(".noKoneksi").fadeIn("slow");
+        }
+
+        $(window).on("online", function () {
+          $(".noKoneksi").fadeOut("slow");
+        });
+
+        $(window).on("offline", function () {
+          $(".noKoneksi").fadeIn("slow");
+        });
+      });
+    </script>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        child,
+        set,
+        get,
+        update,
+        remove,
+        query,
+        onValue,
+      } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyBpuaiGW2az7vtpBxIBioMwS-UtqyanUeQ",
+        authDomain: "indonesiakukayaraya-20be9.firebaseapp.com",
+        databaseURL:
+          "https://indonesiakukayaraya-20be9-default-rtdb.firebaseio.com",
+        projectId: "indonesiakukayaraya-20be9",
+        storageBucket: "indonesiakukayaraya-20be9.appspot.com",
+        messagingSenderId: "15860856240",
+        appId: "1:15860856240:web:c9eacf9097e5db1bf09275",
+        measurementId: "G-59PE0K6M2M",
+      };
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      const db = getDatabase();
+
+      // Mencek input kosong
+      function isEmptyOrSpace(str) {
+        return str == null || str.match(/^ *$/) !== null;
+      }
+
+      function Validation() {
+        var nameregex = /^[a-zA-Z\s]+$/; //cek nama hanya bisa diinput oleh huruf
+        var nisnregex = /^\d+$/; // cek nisn hanya bisa menginput angka
+
+        if (
+          isEmptyOrSpace($("#namaInp").val()) ||
+          isEmptyOrSpace($("#NIPInp").val()) ||
+          isEmptyOrSpace($("#passInp").val()) ||
+          isEmptyOrSpace($("#tokenInp").val())
+        ) {
+          Swal.fire({
+            icon: "warning",
+            title: "Data Kosong!",
+            text: "Isilah semua form terlebih dulu",
+          });
+          return false;
+        }
+        if (!nameregex.test($("#namaInp").val())) {
+          Swal.fire({
+            icon: "warning",
+            title: "Peringatan!",
+            text: "Nama hanya bisa diisi dengan huruf",
+          });
+          return false;
+        }
+        if (!nisnregex.test($("#NIPInp").val())) {
+          Swal.fire({
+            icon: "warning",
+            title: "Peringatan!",
+            text: "NIP hanya bisa diisi dengan angka",
+          });
+          return false;
+        }
+        return true;
+      }
+
+      // Register user to firbase
+      function RegisterUser() {
+        if (!Validation()) {
+          return;
+        }
+        // Get mengambil data di fire base
+        const dbRef = ref(db);
+        get(child(dbRef, "UserGuru/" + $("#NIPInp").val())).then((snapshot) => {
+          // console.log(" suk")
+          if (snapshot.exists()) {
+            Swal.fire({
+              icon: "warning",
+              title: "Mohon Maaf",
+              text: "NIP sudah terdaftar sebelumnya",
+            });
+          } else {
+            onValue(ref(db, "tokenGuru"), (snapshot) => {
+              if (snapshot.val() == $("#tokenInp").val()) {
+                // set Mengirim value baru ke firebase
+                set(ref(db, "UserGuru/" + $("#NIPInp").val()), {
+                  nama: $("#namaInp").val(),
+                  nip: $("#NIPInp").val(),
+                  password: enchPass(),
+                })
+                  .then(() => {
+                    Swal.fire({
+                      icon: "success",
+                      title: "Selamat!",
+                      text: "Akun berhasil dibuat",
+                    }).then(() => {
+                      document.location.href = "login-guru.html";
+                    });
+                  })
+                  .catch((error) => {
+                    alert("error" + error);
+                  });
+              } else {
+                Swal.fire({
+                  icon: "warning",
+                  title: "Mohon Maaf",
+                  text: "Token Anda salah!",
+                });
+              }
+            });
+          }
+        });
+      }
+
+      // Encription password
+      function enchPass() {
+        var pass12 = CryptoJS.AES.encrypt(
+          $("#passInp").val(),
+          $("#passInp").val()
+        );
+        return pass12.toString();
+      }
+      // assign the events
+      $("#sub_btn").click(function () {
+        RegisterUser();
+      });
+    </script>
+  </body>
+</html>

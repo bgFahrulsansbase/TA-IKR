@@ -1,0 +1,418 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: calc(100% - 0px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  text-align: center;
+  height: 80px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(to right, #fff, #fff);
+  z-index: 1;
+}
+.user {
+  border: 2px solid #eee;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 18px; /* Sesuaikan dengan jarak dari atas */
+  right: 18px; /* Sesuaikan dengan jarak dari kanan */
+  /* padding: 4px; */
+  border: #fff 2px solid;
+  padding-left: 10px;
+  border-radius: 30px;
+  opacity: 80%;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+.user:hover {
+  opacity: 100%;
+}
+.user h6 {
+  margin-right: 4px; /* Jarak antara elemen <h6> dan gambar */
+  color: #515878;
+}
+
+/* Gaya untuk gambar logo-user */
+.user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  /* Hapus float:right; */
+  /* margin-left: 0px; Jarak antara elemen <img> dan <h6> */
+}
+/* 
+  .user h6:hover {
+    transform: scale(1.05);
+  } */
+.keluar-btn a {
+  background-color: #eee;
+  width: 185px;
+  border-radius: 8px;
+  color: #22242f;
+  float: down;
+  top: 85vh;
+  position: fixed;
+}
+.keluar-btn a:hover {
+  background-color: #ff0000e5 !important;
+  border-left: none;
+}
+
+.hamburger {
+  position: fixed;
+  top: 15px;
+  left: 0px;
+  height: 45px;
+  width: 45px;
+  background-color: #515878 !important;
+  border-radius: 20px 0px 30px 0 !important;
+  /* border-left: #c5c5c5 2px solid !important; */
+  cursor: pointer;
+  transition: left 0.4s ease !important;
+  z-index: 2;
+}
+
+.hamburger.click {
+  left: 250px;
+}
+
+.hamburger span {
+  color: white;
+  font-size: 28px;
+  margin-top: 6px;
+  margin-left: 8px;
+}
+.sidebar.show .logo {
+  width: 192px;
+  height: 110px;
+  margin: 0px 20px;
+  border-radius: 8px;
+  opacity: 90%;
+}
+.logo {
+  width: 50px;
+  opacity: 20%;
+}
+
+.sidebar {
+  position: fixed;
+  width: 250px;
+  height: 100vh;
+  left: -250px;
+  /* background: #3b3f55; */
+  background-color: #fff;
+  transition: left 0.4s ease;
+  z-index: 2;
+  /* overflow-y: auto; */
+}
+
+.sidebar.show ~ .main-content {
+  left: 250px;
+  width: calc(100% - 250px);
+}
+
+.sidebar.show {
+  left: 0px;
+}
+
+nav ul {
+  /* background-image: linear-gradient(#3b3f55, #22242f); */
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  list-style: none;
+  opacity: 95%;
+}
+
+nav ul li {
+  line-height: 50px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav ul li:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav ul li a {
+  position: relative;
+  color: #999;
+  text-decoration: none;
+  font-size: 12pt;
+  font-weight: 600;
+  /* letter-spacing: 0.6pt; */
+  padding-left: 50px;
+  display: block;
+  width: 100%;
+  border-left: 3px solid transparent;
+}
+
+nav ul li a:hover {
+  color: #fff !important;
+  text-shadow: 0 0 8px #fff;
+  background-color: #515878 !important;
+}
+
+nav ul li.active a {
+  color: #363636;
+  border-left-color: #3b3f55;
+}
+
+/* submenu */
+nav ul ul {
+  margin-left: -30px !important;
+  position: static;
+  display: none;
+  width: 100%;
+}
+
+/* tampil sub menu js */
+
+nav ul .topik1-show.show,
+nav ul .topik2-show.show1,
+nav ul .topik3-show.show2 {
+  display: block;
+}
+
+/* end */
+nav ul ul li {
+  line-height: 42px;
+  /* border: 2px white solid; */
+}
+
+nav ul ul li a {
+  font-size: smaller;
+  color: #999;
+  background-color: #eee;
+  padding-left: 50px;
+  border-radius: 4px;
+  /* border: 2px white solid; */
+}
+
+nav ul li.active ul li a {
+  /* color: #e6e6e6; */
+  background: #eee;
+  border-left-color: transparent;
+}
+
+nav ul ul li a:hover {
+  color: #fff !important;
+  background-color: #515878 !important;
+}
+
+nav ul ul li a.active {
+  color: #fff !important;
+  background-image: linear-gradient(#858cab, #515878) !important;
+}
+
+nav ul li a span {
+  position: absolute;
+  top: 50%;
+  right: 35px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  transition: transform 0.4s;
+}
+
+nav ul li a span.rotate {
+  transform: translateY(-50%) rotate(-180deg);
+  color: #858cab;
+}
+
+li {
+  position: relative; /* Membuat posisi relatif untuk menampung ikon */
+}
+
+/* Mengatur ikon kecuali bx-caret-down dan bx-menu */
+.bx:not(.bx-caret-down):not(.bx-menu):not(.bx-refresh):not(.bx-paper-plane):not(
+    .bxs-pin
+  ):not(.bx-search-alt) {
+  position: absolute; /* Mengatur posisi ikon */
+  top: 50%; /* Menyusun ikon secara vertikal di tengah */
+  left: 20px; /* Jarak antara ikon dan kiri elemen <li> */
+  transform: translateY(-50%); /* Menyusun ikon secara vertikal di tengah */
+  font-size: 18px; /* Mengatur ukuran ikon */
+}
+
+.main-content {
+  position: relative;
+  background-color: #eee;
+  padding-top: 15vh;
+  left: 0px;
+  transition: all 0.4s ease;
+  width: calc(100% - 0px);
+  height: 100vh;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-top: -50px !important;
+  z-index: 0;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(to right, #002044, black);
+  color: #eee;
+  margin-left: 60px;
+  border-radius: 10px;
+}
+
+.bglatar {
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* background-color: #fff; */
+  background-image: url(../assets/img/bg-gel2.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.isikonten {
+  /* border: yellow 2px solid; */
+  background-color: #fff;
+  overflow-y: auto;
+  height: 77vh;
+  border-radius: 10px;
+  /* box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.7); */
+  padding: 10px 20px;
+  border-top: 3px #eee solid;
+  border-bottom: 4px #eee solid;
+}
+.isikonten p {
+  /* font-family: "Open Sans", sans-serif; */
+  margin: 10px 20px;
+  text-align: justify;
+  color: #252525;
+}
+
+/* DATA SISWA */
+.mx-2 button {
+  background-color: #515878;
+  line-height: 38px;
+  border-radius: 6px;
+  border: none;
+  padding: 0px 15px;
+  color: #eee;
+}
+.mx-2 button:hover {
+  background-color: #3b3f55;
+  color: #fff;
+}
+.add-siswa {
+  border: #858cab 2px solid;
+  border-radius: 30px;
+  line-height: 35px;
+  padding: 0px 15px;
+  transition: all 0.2s;
+}
+.add-siswa:hover {
+  cursor: pointer;
+  background-color: #858cab;
+  color: #fff;
+}
+
+th {
+  border: #eee 1px solid !important;
+}
+td {
+  line-height: 40px;
+}
+thead {
+  background-color: #515878;
+  color: #fff;
+  line-height: 40px;
+}
+.tabel {
+  /* border: red 2px solid; */
+  background-color: #eceded;
+  border-radius: 10px;
+  /* min-height: auto; */
+  padding: 6px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* padding-bottom: 10px; */
+  /* box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); */
+}
+
+.tabel h6 {
+  background-color: #515878;
+  border-radius: 6px;
+  padding: 6px 20px;
+  color: #eee;
+  /* font-family: "Bagel Fat One", cursive; */
+  /* text-align: center; */
+  /* letter-spacing: 0.1rem; */
+  /* background-image: linear-gradient(to right, #666f91, #424762, #333647); */
+  /* border-radius: 10px 10px 0px 0px; */
+  /* line-height: 30px; */
+  /* padding: 5px; */
+  /* font-size: 15pt; */
+}
+.tabel ol li {
+  margin: 5px 0px;
+  margin-right: 20px;
+  text-align: justify;
+  color: #6e6e6e;
+}
+.tabel p {
+  color: #6e6e6e !important;
+}
+
+.footer {
+  justify-content: center;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  /* border: #002044 2px solid; */
+  margin-top: 6px;
+  padding: 4px;
+}
+.footer button {
+  padding: 4px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #eee;
+}
+.footer button:hover {
+  background-color: #858cab;
+  color: #fff;
+}
+.footer button.active {
+  background-color: #858cab;
+  color: #fff;
+}
+
+.nilai-input {
+  width: fit-content;
+  padding-left: 6px;
+  height: 35px;
+  /* border: 2px red solid; */
+}
+
+.mx-2 button {
+  background-color: #515878;
+  line-height: 38px;
+  border-radius: 6px;
+  border: none;
+  padding: 0px 15px;
+  color: #eee;
+}
+.mx-2 button:hover {
+  background-color: #3b3f55;
+  color: #fff;
+}
+.justify-content-between {
+  margin-top: 12px;
+  /* border: 2px red solid; */
+}
+
+.text-capitalize {
+  line-height: 20px;
+}

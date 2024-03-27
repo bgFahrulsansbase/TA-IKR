@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      type="x-icon"
+      href="assets/img/logo/iconwebIKR.svg"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Informasi | IKR</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- ICON -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/css-informasi.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- spinner loading -->
+    <!-- <div class="spinner-wrapper">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div> -->
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+      <div class="container d-flex align-items-center justify-content-between">
+        <a href="beranda.html#menu"
+          ><button class="kembali-btn">
+            <i class="bx bxs-home"></i>&nbsp;Kembali
+          </button></a
+        >
+        <!-- 
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li>
+              <a class="nav-link" href="index.html"
+                ><span class="bx bx-home"></span> Beranda</a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="cpl.html"
+                ><i class="bx bx-list-check"></i>Capaian Pembelajaran</a
+              >
+            </li>
+            <li>
+              <a class="nav-link active" href="informasi.html"
+                ><i class="bx bxs-info-circle"></i>Informasi</a
+              >
+            </li>
+          </ul>
+
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav> -->
+        <!-- .navbar -->
+        <!-- <button id="logoutBtn" class="keluar-btn">
+          <a> Keluar </a>
+        </button> -->
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <div id="background-svg">
+      <svg
+        width="100%"
+        height="100%"
+        id="svg"
+        viewBox="0 0 1440 390"
+        xmlns="http://www.w3.org/2000/svg"
+        class="transition duration-300 ease-in-out delay-150"
+      >
+        <path
+          d="M 0,400 C 0,400 0,100 0,100 C 115.32142857142858,82.46428571428572 230.64285714285717,64.92857142857143 356,64 C 481.35714285714283,63.07142857142857 616.7499999999999,78.74999999999999 736,80 C 855.2500000000001,81.25000000000001 958.3571428571429,68.07142857142858 1073,69 C 1187.642857142857,69.92857142857142 1313.8214285714284,84.96428571428571 1440,100 C 1440,100 1440,400 1440,400 Z"
+          stroke="none"
+          stroke-width="0"
+          fill="#515878"
+          fill-opacity="0.4"
+          class="transition-all duration-300 ease-in-out delay-150 path-0"
+        ></path>
+        <path
+          d="M 0,400 C 0,400 0,200 0,200 C 133.35714285714283,208.67857142857144 266.71428571428567,217.35714285714286 395,212 C 523.2857142857143,206.64285714285714 646.4999999999999,187.25000000000003 743,187 C 839.5000000000001,186.74999999999997 909.2857142857144,205.64285714285714 1021,211 C 1132.7142857142856,216.35714285714286 1286.3571428571427,208.17857142857144 1440,200 C 1440,200 1440,400 1440,400 Z"
+          stroke="none"
+          stroke-width="0"
+          fill="#515878"
+          fill-opacity="0.53"
+          class="transition-all duration-300 ease-in-out delay-150 path-1"
+        ></path>
+        <path
+          d="M 0,400 C 0,400 0,300 0,300 C 96.39285714285714,289.3928571428571 192.78571428571428,278.7857142857143 306,272 C 419.2142857142857,265.2142857142857 549.2499999999999,262.25 686,265 C 822.7500000000001,267.75 966.2142857142858,276.2142857142857 1093,283 C 1219.7857142857142,289.7857142857143 1329.892857142857,294.8928571428571 1440,300 C 1440,300 1440,400 1440,400 Z"
+          stroke="none"
+          stroke-width="0"
+          fill="#515878"
+          fill-opacity="1"
+          class="transition-all duration-300 ease-in-out delay-150 path-2"
+        ></path>
+      </svg>
+    </div>
+
+    <div class="main-informasi">
+      <div class="nav-materi">
+        <button class="active" onclick="showMenu('infoApk')" id="btnInfoApk">
+          Informasi
+        </button>
+        <button onclick="showMenu('petunjukApk')" id="btnPetunjukApk">
+          Petunjuk Aplikasi
+        </button>
+        <button onclick="showMenu('dafpusApk')" id="btnDafpusApk">
+          Daftar Pustaka
+        </button>
+      </div>
+
+      <div id="infoApk" style="display: none">
+        <div class="kolom">
+          <!-- <h3>Informasi Aplikasi</h3> -->
+          <p>
+            Media Pembelajaran ini dibuat untuk memenuhi syarat dalam
+            menyelesaikan program strata-1 (S1) Pendidikan komputer dengan judul
+            "Pengembangan Media Pembelajaran Interaktif Berbasis Web Pada Materi
+            Indonesiaku Kaya Raya Dengan Pendekatan Saintifik Untuk Siswa
+            Sekolah Dasar Kelas V".
+            <br />
+          </p>
+
+          <div class="container">
+            <div class="row justify-content-center mt-0">
+              <div class="col-md-12">
+                <section class="card-section">
+                  <div class="card p-2 custom-card">
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <!-- <th style="width: 40%;">Kolom 1</th>
+                                <th style="width: 60%;">Kolom 2</th>
+                              </tr> -->
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr>
+                            <td>Nama</td>
+                            <td>Fahrul Ikhsan Hidayatullah</td>
+                          </tr>
+                          <tr>
+                            <td>NIM</td>
+                            <td>1910131210004</td>
+                          </tr>
+                          <tr>
+                            <td>Dosen Pembimbing I</td>
+                            <td>Dr. Harja Santanapurba, M.Kom</td>
+                          </tr>
+                          <tr>
+                            <td>Dosen Pembimbing II</td>
+                            <td>Muhammad Hifdzi Adini, S.Kom., M.T</td>
+                          </tr>
+                          <tr>
+                            <td>Program Studi</td>
+                            <td>Pendidikan Komputer</td>
+                          </tr>
+                          <tr>
+                            <td>Fakultas</td>
+                            <td>Keguruan dan Ilmu Pendidikan</td>
+                          </tr>
+                          <tr>
+                            <td>Instansi</td>
+                            <td>Universitas Lambung Mangkurat</td>
+                          </tr>
+                          <tr>
+                            <td>E-mail</td>
+                            <td>fahrulikhsan25@gmail.com</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="petunjukApk" style="display: block">
+        <h6>1. Registrasi Akun</h6>
+        <div class="image-container">
+          <img src="assets/img/TopikA/petani.jpg" alt="Raflesa Arnoldi" />
+
+          <center>
+            <div class="zoom-gambar">Klik disini untuk memperbesar Gambar</div>
+          </center>
+        </div>
+        <div class="image-container">
+          <img src="assets/img/raflesia.jpg" alt="Raflesa Arnoldi" />
+
+          <center>
+            <div class="zoom-gambar">Klik disini untuk memperbesar Gambar</div>
+          </center>
+        </div>
+        <p>
+          Keterangan : <br />
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur
+          sit ipsum velit beatae, excepturi magnam nobis libero voluptas
+          quibusdam molestiae maxime asperiores earum ad, at et adipisci ut
+          nisi. Quasi!
+        </p>
+      </div>
+
+      <div id="dafpusApk" style="display: none">
+        <ul>
+          <li>
+            Ghaniem, A. F., Rasa, A. A., Oktora, A. H., & Yasella, M. (2021).
+            Buku panduan guru ilmu pengetahuan alam dan sosial untuk SD kelas V.
+          </li>
+          <li>
+            Kadek, P. (2019). E-Modul geografi kelas X: pengetahuan dasar peta.
+          </li>
+          <li>
+            Kusumaningrum, E. N., & Prasetyo, B. (2018). Ulasan kritis tentang
+            teori biogeografi pulau. Program Studi Biologi, Fakultas Matematika
+            dan Ilmu Pengetahuan Alam, Universitas Terbuka.[Indonesian].
+          </li>
+          <!-- <li>
+            Maharani, I. (2023). Peningkatkan Hasil Belajar Siswa Pada Materi
+            Sebaran Flora Fauna Di Indonesia Dan Dunia Melalui Penerapan Model
+            Pembelajaran Problem Based Learning. Action: Jurnal Inovasi
+            Penelitian Tindakan Kelas dan Sekolah, 3(1), 16-25.
+          </li> -->
+        </ul>
+      </div>
+    </div>
+    <script>
+      function showMenu(menu) {
+        // Menyembunyikan semua menu
+        document.getElementById("infoApk").style.display = "none";
+        document.getElementById("petunjukApk").style.display = "none";
+        document.getElementById("dafpusApk").style.display = "none";
+
+        // Menampilkan menu yang dipilih
+        document.getElementById(menu).style.display = "block";
+
+        // Menghapus kelas "active" dari semua button
+        const buttons = document.querySelectorAll(".nav-materi button");
+        buttons.forEach((button) => {
+          button.classList.remove("active");
+        });
+
+        // Menambahkan kelas "active" pada button yang diklik
+        const activeButton = document.getElementById(
+          "btn" + menu.charAt(0).toUpperCase() + menu.slice(1)
+        );
+        activeButton.classList.add("active");
+      }
+    </script>
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hasil kuis | IKR</title>
+
+    <!-- ICON -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="/fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="/fontawesome/css/brands.css" rel="stylesheet" />
+    <link href="/fontawesome/css/solid.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Boostrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Roboto+Flex:opsz,wght@8..144,500&family=Signika+Negative:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- css -->
+    <!-- <link rel="stylesheet" href="../guru-css/css-hasil.css" /> -->
+    <link rel="stylesheet" href="../guru-css/css-kuis.css" />
+
+    <!--Datatable-->
+    <link
+      href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+    <link rel="icon" type="image/png" href="/img/iconWebsite.svg" />
+  </head>
+  <body>
+    <div class="hamburger click">
+      <span class="bx bx-menu"></span>
+    </div>
+    <nav class="sidebar show">
+      <!-- <div class="text">Daftar Menu</div> -->
+      <img src="../assets/img/logo/logoIKR.svg" alt="logo" class="logo" />
+      <ul>
+        <li>
+          <a href="index-guru.html" class="topik1-btn"
+            ><i class="bx bxs-group"></i>Data Siswa
+          </a>
+        </li>
+        <li>
+          <a href="#" class="topik1-btn"
+            ><i class="bx bx-book"></i>Lembar Kerja
+            <span class="bx bx-caret-down first"></span>
+          </a>
+          <ul class="topik1-show">
+            <li><a href="hasil-menanya.html">Menanya</a></li>
+            <li><a href="hasil-mengomunikasi.html">Mengomunikasikan</a></li>
+          </ul>
+        </li>
+        <li class="active">
+          <a href="hasil-kuis.html" class="topik2-btn"
+            ><i class="bx bx-list-check"></i>Hasil Kuis
+          </a>
+        </li>
+        <li>
+          <a href="hasil-evaluasi.html" class="topik3-btn"
+            ><i class="bx bx-list-check"></i>Hasil Evaluasi
+          </a>
+        </li>
+        <li>
+          <a href="aturkkm.html" class="eva-btn"
+            ><i class="bx bxs-cog"></i>Pengaturan KKM
+          </a>
+        </li>
+        <li id="logoutBtn" class="keluar-btn">
+          <a> <span class="bx bxs-exit"></span>Keluar </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- END NAV SIDEBAR -->
+    <header>
+      <a href="page-siswa.html" class="user">
+        <h6><span id="user-nama"></span></h6>
+        <abbr title="profil">
+          <img src="../assets/img/logo/user-log.svg" alt="Logo" />
+        </abbr>
+      </a>
+    </header>
+
+    <div class="main-content">
+      <div class="bglatar">
+        <div class="isikonten">
+          <div class="konten">
+            <div class="materi">
+              <div class="d-md-flex justify-content-center mx-2 btnTambahAkun">
+                <div class="input-group w-25 mx-2">
+                  <label class="input-group-text" for="kelas">Kelas :</label>
+                  <select id="kelas" class="form-select" name="kelas">
+                    <option value="" selected="selected" hidden>
+                      Pilih Kelas
+                    </option>
+                  </select>
+                </div>
+
+                <div class="input-group w-25 mx-2">
+                  <label class="input-group-text" for="hasil">Hasil :</label>
+                  <select id="kuis" class="form-select" name="kuis">
+                    <option value="" selected="selected" hidden>
+                      Pilih Kuis
+                    </option>
+                    <option value="kuis-1">Kuis 1</option>
+                    <option value="kuis-2">Kuis 2</option>
+                    <option value="kuis-3">Kuis 3</option>
+                  </select>
+                </div>
+
+                <div class="input-group-end mx-2">
+                  <button type="button" id="cari">
+                    Cari&nbsp;&nbsp;<i class="bx bx-search-alt"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="card mt-2">
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table
+                      id="example1"
+                      class="table-striped"
+                      style="width: 100%"
+                    >
+                      <thead>
+                        <tr>
+                          <th class="text-center">NISN</th>
+                          <th class="text-center">Nama Siswa</th>
+                          <th class="text-center">Kelas</th>
+                          <!-- <th class="text-center">No. Absen</th> -->
+                          <th class="text-center">Nilai</th>
+                          <th class="text-center">Waktu Pengumpulan</th>
+                          <th class="text-center">Hari/Tanggal</th>
+                        </tr>
+                      </thead>
+
+                      <tbody id="dataKuis"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- JS -->
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+          crossorigin="anonymous"
+        ></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- JS -->
+        <script src="/js/indexGuru.js"></script>
+
+        <!-- DT Bootsraps -->
+
+        <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+        <!-- CSS DT  -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"
+          type="text/css"
+        ></script>
+        <script
+          src="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css"
+          type="text/css"
+        ></script>
+        <!-- Export DT -->
+        <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+        <script type="module" src="../assets/js/guru/db-hasilkuis.js"></script>
+      </div>
+    </div>
+
+    <script>
+      // sidebar terbuka ketika layar lebar
+      $(document).ready(function () {
+        if ($(window).width() > 768) {
+          $(".hamburger").addClass("click");
+          $(".sidebar").addClass("show");
+        }
+      });
+      // button menampilkan sidebar
+      $(".hamburger").click(function () {
+        $(this).toggleClass("click");
+        $(".sidebar").toggleClass("show");
+      });
+      // js untuk menampilkan submenu pada sidebar
+      $(".topik1-btn").click(function () {
+        $("nav ul .topik1-show").toggleClass("show");
+        $("nav ul .first").toggleClass("rotate");
+      });
+      $(".topik2-btn").click(function () {
+        $("nav ul .topik2-show").toggleClass("show1");
+        $("nav ul .second").toggleClass("rotate");
+      });
+      $(".topik3-btn").click(function () {
+        $("nav ul .topik3-show").toggleClass("show2");
+        $("nav ul .three").toggleClass("rotate");
+      });
+      $("nav ul li").click(function () {
+        $(this).addClass("active").siblings().removeClass("active");
+      });
+      $("nav ul ul li a").click(function () {
+        $(this).addClass("active").siblings().removeClass("active");
+      });
+      // Menampilkan submenu .topik1-show secara default saat halaman dimuat
+      // $(".topik1-show").addClass("show");
+    </script>
+    <script>
+      // Ambil data nama dari localStorage
+      const nama = localStorage.getItem("nama");
+
+      // Periksa apakah data nama ada
+      if (nama) {
+        const namaSpan = document.getElementById("user-nama");
+        namaSpan.textContent = nama; // Memasukkan nama ke dalam elemen span
+      }
+    </script>
+
+    <script>
+      // Menambahkan event listener untuk tombol keluar
+      document.addEventListener("DOMContentLoaded", function () {
+        const logoutButton = document.getElementById("logoutBtn");
+
+        logoutButton.addEventListener("click", function () {
+          Swal.fire({
+            title: "Keluar Akun",
+            text: "Anda yakin ingin keluar akun?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Ya, Keluar",
+            cancelButtonText: "Batal",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location = "../login-guru.html";
+            }
+          });
+        });
+      });
+    </script>
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Siswa</title>
+
+    <!-- ICON -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="/fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="/fontawesome/css/brands.css" rel="stylesheet" />
+    <link href="/fontawesome/css/solid.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Jquery -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" charset="UTF-8"></script> -->
+
+    <!-- Boostrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Roboto+Flex:opsz,wght@8..144,500&family=Signika+Negative:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../guru-css/index-guru.css" />
+    <!-- <link href="materiIndex.css" rel="stylesheet" /> -->
+    <!-- <link href="/css/materiResponsive.css" rel="stylesheet" /> -->
+    <!-- <link href="tbGuru.css" rel="stylesheet" /> -->
+
+    <!--Datatable-->
+    <link
+      href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+    <link rel="icon" type="image/png" href="/img/iconWebsite.svg" />
+  </head>
+  <body>
+    <div class="hamburger click">
+      <span class="bx bx-menu"></span>
+    </div>
+    <nav class="sidebar show">
+      <!-- <div class="text">Daftar Menu</div> -->
+      <img src="/assets/img/logo/logoIKR.svg" alt="logo" class="logo" />
+      <ul>
+        <li class="active">
+          <a href="#" class="topik1-btn"
+            ><i class="bx bxs-group"></i>Data Siswa
+          </a>
+        </li>
+        <li>
+          <a href="#" class="topik1-btn"
+            ><i class="bx bx-book"></i>Lembar Kerja
+            <span class="bx bx-caret-down first"></span>
+          </a>
+          <ul class="topik1-show">
+            <li><a href="hasil-menanya.html">Menanya</a></li>
+            <li><a href="hasil-mengomunikasi.html">Mengomunikasikan</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="hasil-kuis.html" class="topik2-btn"
+            ><i class="bx bx-list-check"></i>Hasil Kuis
+          </a>
+        </li>
+        <li>
+          <a href="hasil-evaluasi.html" class="topik3-btn"
+            ><i class="bx bx-list-check"></i>Hasil Evaluasi
+          </a>
+        </li>
+
+        <li>
+          <a href="aturkkm.html" class="eva-btn"
+            ><i class="bx bxs-cog"></i>Pengaturan KKM
+          </a>
+        </li>
+        <li id="logoutBtn" class="keluar-btn">
+          <a> <span class="bx bxs-exit"></span>Keluar </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Header -->
+    <header>
+      <a href="page-siswa.html" class="user">
+        <h6><span id="user-nama"></span></h6>
+        <abbr title="profil">
+          <img src="/assets/img/logo/user-log.svg" alt="Logo" />
+        </abbr>
+      </a>
+    </header>
+    <!-- section Utama -->
+    <!-- <section class="home-section"> -->
+    <!-- <div class="home-content">
+        <i class="fa-sharp fa-solid fa-bars"></i>
+        <span class="text">Data Siswa</span>
+        <span></span>
+      </div> -->
+
+    <div class="main-content">
+      <div class="bglatar">
+        <div class="judul-hal">
+          <!-- <center><h4>Data Siswa</h4></center> -->
+        </div>
+        <div class="isikonten">
+          <!-- <div class="konten"> -->
+          <div
+            class="materi h-100"
+            style="
+              border-bottom-left-radius: 0px;
+              border-bottom-right-radius: 0px;
+            "
+          >
+            <div
+              class="d-md-flex justify-content-between mx-2 btnTambahAkun align-items-center"
+            >
+              <div class="d-md-flex justify-content-between">
+                <div class="mx-2">
+                  <div class="input-group mx-2">
+                    <label class="input-group-text fw-bold" for="kelas"
+                      >Kelas</label
+                    >
+                    <select id="kelas" class="form-select" name="kelas">
+                      <option value="" selected="selected" hidden>
+                        Pilih Kelas
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="mx-2">
+                  <button type="button" class="btn btn-success" id="cari">
+                    Cari&nbsp;&nbsp;<i class="bx bx-search-alt"></i>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="add-siswa"
+                id="tambahSiswaClick"
+                data-bs-toggle="modal"
+                data-bs-target="#tambahSiswa"
+              >
+                <i class="fa-sharp fa-solid fa-user-plus mt-1"></i>
+                <b class="px-2">Tambah Akun</b>
+              </div>
+            </div>
+            <br />
+            <!-- <div class="card mt-2" style="border: 2px solid #b081a4"> -->
+            <div class="card-body">
+              <div class="table-responsive">
+                <table id="example" class="table-striped" style="width: 100%">
+                  <thead>
+                    <tr>
+                      <th class="text-center">NISN</th>
+                      <th class="text-center">Nama Siswa</th>
+                      <th class="text-center">Kelas</th>
+                      <!-- <th class="text-center">Nomor Absen</th> -->
+                      <th class="text-center">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody id="dataSiswa"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal edit -->
+    <div
+      id="editData"
+      class="modal fade"
+      data-backdrop="static"
+      data-keyboard="false"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Data Siswa</h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="popup update">
+              <form action="">
+                <input
+                  type="text"
+                  placeholder="Nama Siswa"
+                  name="namaEdit"
+                  class="form-control mb-3"
+                />
+                <input
+                  type="text"
+                  placeholder="NISN"
+                  name="nisnEdit"
+                  class="form-control mb-3"
+                  disabled
+                  aria-label="Close"
+                />
+                <select
+                  id="kelasEdit"
+                  class="form-select mb-3"
+                  name="kelasEdit"
+                  aria-placeholder="Pilih Kelas"
+                >
+                  <option selected hidden>Pilih Kelas</option>
+                </select>
+                <!-- <input type="text" placeholder="No Absen" name="absenEdit" class="form-control mb-3" /> -->
+                <!-- <input type="password" placeholder="Password" name="passEdit" class="form-control mb-3" disabled/> -->
+
+                <!-- Tambahkan ikon mata (eye) dari Font Awesome pada elemen input -->
+                <div class="form-group">
+                  <label for="password">Kata Sandi</label>
+                  <div class="input-group">
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      name="passEdit"
+                      class="form-control mb-3"
+                      id="passwordSiswa"
+                    />
+
+                    <div class="input-group-append" id="showPasswordBtn">
+                      <button
+                        class="btn btn-outline-secondary mt-1"
+                        type="button"
+                        id="btnEyePw"
+                      >
+                        <i id="mataPW" class="fas fa-eye"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    id="keluar"
+                    type="button"
+                    class="keluar btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Batal
+                  </button>
+                  <button type="submit" id="submit2" class="btn btn-success">
+                    Simpan
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Modal HTML -->
+    <div class="modal fade" id="tambahSiswa" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold" id="exampleModalLabel">
+              TAMBAH DATA SISWA
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="popup add">
+              <form action="">
+                <input
+                  type="text"
+                  placeholder="Nama Siswa"
+                  name="namaTambah"
+                  class="form-control mb-3"
+                />
+                <input
+                  type="text"
+                  placeholder="NISN"
+                  name="nisTambah"
+                  class="form-control mb-3"
+                />
+                <select
+                  id="kelasadd"
+                  class="form-select mb-3"
+                  name="kelasTambah"
+                  aria-placeholder="Pilih Kelas"
+                >
+                  <option selected hidden>Pilih Kelas</option>
+                </select>
+
+                <div class="form-group">
+                  <label for="password">Kata Sandi</label>
+                  <div class="input-group">
+                    <input
+                      type="password"
+                      placeholder="Password"
+                      name="passTambah"
+                      class="form-control mb-3"
+                      id="passwordTambahSiswa"
+                    />
+
+                    <div class="input-group-append" id="showPasswordTambahBtn">
+                      <button
+                        class="btn btn-outline-secondary mt-1"
+                        type="button"
+                        id="btnEyePw"
+                      >
+                        <i id="mataPW" class="fas fa-eye"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Batal
+                  </button>
+                  <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- DT Bootsraps -->
+    <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- CSS DT  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"
+      type="text/css"
+    ></script>
+    <script
+      src="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css"
+      type="text/css"
+    ></script>
+
+    <script type="module" src="../assets/js/guru/db-datasiswa.js"></script>
+
+    <script>
+      // sidebar terbuka ketika layar lebar
+      $(document).ready(function () {
+        if ($(window).width() > 768) {
+          $(".hamburger").addClass("click");
+          $(".sidebar").addClass("show");
+        }
+      });
+      // button menampilkan sidebar
+      $(".hamburger").click(function () {
+        $(this).toggleClass("click");
+        $(".sidebar").toggleClass("show");
+      });
+      // js untuk menampilkan submenu pada sidebar
+      $(".topik1-btn").click(function () {
+        $("nav ul .topik1-show").toggleClass("show");
+        $("nav ul .first").toggleClass("rotate");
+      });
+      $(".topik2-btn").click(function () {
+        $("nav ul .topik2-show").toggleClass("show1");
+        $("nav ul .second").toggleClass("rotate");
+      });
+      $(".topik3-btn").click(function () {
+        $("nav ul .topik3-show").toggleClass("show2");
+        $("nav ul .three").toggleClass("rotate");
+      });
+
+      $("nav ul li").click(function () {
+        $(this).addClass("active").siblings().removeClass("active");
+      });
+      $("nav ul ul li a").click(function () {
+        $(this).addClass("active").siblings().removeClass("active");
+      });
+      // Menampilkan submenu .topik1-show secara default saat halaman dimuat
+      // $(".topik1-show").addClass("show");
+    </script>
+    <script>
+      // Ambil data nama dari localStorage
+      const nama = localStorage.getItem("nama");
+
+      // Periksa apakah data nama ada
+      if (nama) {
+        const namaSpan = document.getElementById("user-nama");
+        namaSpan.textContent = nama; // Memasukkan nama ke dalam elemen span
+      }
+    </script>
+
+    <script>
+      // Menambahkan event listener untuk tombol keluar
+      document.addEventListener("DOMContentLoaded", function () {
+        const logoutButton = document.getElementById("logoutBtn");
+
+        logoutButton.addEventListener("click", function () {
+          Swal.fire({
+            title: "Keluar Akun",
+            text: "Anda yakin ingin keluar akun?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Ya, Keluar",
+            cancelButtonText: "Batal",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location = "../login-guru.html";
+              localStorage.removeItem("nama");
+              localStorage.removeItem("nisns");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

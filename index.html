@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      type="x-icon"
+      href="assets/img/logo/iconwebIKR.svg"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Siswa | Indonesiaku Kaya Raya</title>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      charset="UTF-8"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+
+    <!-- ICON -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- css -->
+    <link href="assets/css/css-login.css" rel="stylesheet" />
+
+    <link rel="icon" type="image/png" href="/img/iconWebsite.svg" />
+  </head>
+  <body>
+    <div class="bg-card">
+      <div class="card">
+        <div class="login-container">
+          <div class="header">
+            <h4>Login Siswa</h4>
+            <p class="judul-login">Media Interaktif Indonesiaku Kaya Raya</p>
+          </div>
+          <img src="assets/img/logo/user-log.svg" style="margin: 5px" />
+          <div class="login-form">
+            <p class="subform">NISN</p>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="*NISN"
+              id="NISNInp"
+            />
+
+            <div class="login-form">
+              <div class="password-container">
+                <p class="subform">Password</p>
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="*Password"
+                  id="passInp"
+                  autocomplete="on"
+                /><i
+                  id="togglePassword"
+                  class="password-toggle fas fa-eye-slash"
+                ></i>
+              </div>
+            </div>
+
+            <button type="text" class="btn-masuk" id="sub_btn">Masuk</button>
+            <div>
+              <a href="login-guru.html">
+                <button class="btn-sebagai">Masuk sebagai Guru</button></a
+              >
+            </div>
+
+            <p>
+              Belum punya Akun?
+              <a
+                href="registrasi-siswa.html"
+                class="buatAKun"
+                style="
+                  margin: -5px auto 0px auto;
+                  text-decoration: none;
+                  width: fit-content;
+                "
+                >Buat Akun</a
+              >
+            </p>
+
+            <!-- <div
+            style="
+              display: flex;
+              align-items: center;
+              padding-bottom: 14px;
+              width: 100%;
+            "
+          >
+            <div class="line"></div>
+            <span class="centerline">atau</span>
+            <div class="line"></div>
+          </div> -->
+
+            <!-- <a href="login-guru.html" class="btn-guru"> Masuk Sebagai Guru </a> -->
+          </div>
+        </div>
+      </div>
+      <!-- <img
+        src="assets/img/svgloginsiswa.svg"
+        alt=""
+        srcset=""
+        class="svg-img"
+      /> -->
+    </div>
+
+    <script>
+      $("#togglePassword").click(function () {
+        var passwordInput = $("#passInp");
+        var passwordFieldType = passwordInput.attr("type");
+
+        if (passwordFieldType === "password") {
+          passwordInput.attr("type", "text");
+          $("#togglePassword").toggleClass("fa-eye fa-eye-slash");
+          $("#togglePassword").css("color", "#843bc7");
+        } else {
+          passwordInput.attr("type", "password");
+          $("#togglePassword").toggleClass("fa-eye-slash fa-eye");
+          $("#togglePassword").css("color", "#888");
+        }
+      });
+    </script>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
+      import {
+        getDatabase,
+        ref,
+        onValue,
+        set,
+        update,
+        child,
+        get,
+        remove,
+      } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyBpuaiGW2az7vtpBxIBioMwS-UtqyanUeQ",
+        authDomain: "indonesiakukayaraya-20be9.firebaseapp.com",
+        databaseURL:
+          "https://indonesiakukayaraya-20be9-default-rtdb.firebaseio.com",
+        projectId: "indonesiakukayaraya-20be9",
+        storageBucket: "indonesiakukayaraya-20be9.appspot.com",
+        messagingSenderId: "15860856240",
+        appId: "1:15860856240:web:c9eacf9097e5db1bf09275",
+        measurementId: "G-59PE0K6M2M",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase();
+
+      // Referensi
+      const nisn2 = document.getElementById("NISNInp");
+      const pass = document.getElementById("passInp");
+      const submit = document.getElementById("sub_btn");
+
+      // Authentication proses
+      function AuthenticateUser() {
+        const dbref = ref(db);
+
+        if (pass.value == "" || nisn2.value == "") {
+          Swal.fire({
+            icon: "warning",
+            title: "Data Kosong",
+            text: "Isilah semua form terlebih dulu",
+          });
+        } else {
+          get(child(dbref, "UserSiswa/" + nisn2.value)).then((snapshot) => {
+            if (snapshot.exists()) {
+              let dbpass = decPass(snapshot.val().password);
+              let dbnis = snapshot.val().nisn;
+              let dbnama = snapshot.val().nama;
+              let dbkelas = snapshot.val().kelas;
+
+              if (dbpass == pass.value && dbnis == nisn2.value) {
+                localStorage.setItem("nisn", dbnis);
+                localStorage.setItem("nama", dbnama);
+                localStorage.setItem("kelas", dbkelas);
+                Swal.fire({
+                  icon: "success",
+                  title: "Selamat!",
+                  text: "Anda berhasil masuk",
+                  // showConfirmButton: false,
+                  // timer: 1500,
+                }).then(() => {
+                  window.location = "beranda.html";
+                });
+              } else {
+                Swal.fire({
+                  icon: "error",
+                  title: "Gagal Masuk!",
+                  text: "NISN atau Password anda salah, periksa kembali",
+                });
+              }
+            } else {
+              Swal.fire({
+                icon: "warning",
+                title: "Akun Belum Terdaftar",
+                text: "Silahkan buat Akun terlebih dulu",
+              });
+            }
+          });
+        }
+      }
+
+      // Encription password
+      function decPass(dbpass) {
+        var pass12 = CryptoJS.AES.decrypt(dbpass, nisn2.value);
+        return pass12.toString(CryptoJS.enc.Utf8);
+      }
+
+      // assign the events
+      submit.addEventListener("click", AuthenticateUser);
+      btnguru.addEventListener("click", function () {
+        window.location = "loginGuru.html";
+      });
+
+      // Ambil data nama dari localStorage dan masukkan ke dalam elemen HTML
+      const nama = localStorage.getItem("nama");
+      if (nama) {
+        const namaSpan = document.createElement("span");
+        namaSpan.textContent = nama;
+
+        // Pastikan elemen dengan id "nama" ada di halaman
+        const targetElem = document.getElementById("nama");
+        if (targetElem) {
+          targetElem.appendChild(namaSpan);
+        }
+      }
+    </script>
+  </body>
+</html>

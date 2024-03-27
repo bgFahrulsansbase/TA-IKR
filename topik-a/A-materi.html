@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      type="x-icon"
+      href="../assets/img/logo/iconwebIKR.svg"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Topik-A | Materi</title>
+    <link rel="stylesheet" href="../assets/css/css-materi.css" />
+
+    <!-- ICON -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  </head>
+  <body>
+    <div class="btn click">
+      <span class="bx bx-menu"></span>
+    </div>
+    <nav class="sidebar show">
+      <!-- <div class="text">Daftar Menu</div> -->
+      <img src="../assets/img/logo/logoIKR.svg" alt="logo" class="logo" />
+      <ul>
+        <li>
+          <a href="../beranda.html"
+            ><span class="bx bxs-home"></span>Beranda
+          </a>
+        </li>
+        <li class="active">
+          <a href="#" class="topik1-btn"
+            ><i class="bx bxs-book-reader"></i>Topik A
+            <span class="bx bx-caret-down first"></span>
+          </a>
+          <ul class="topik1-show">
+            <li><a href="../topik-a/A-pendahuluan.html">Pendahuluan</a></li>
+            <li><a href="#" class="active">Materi</a></li>
+            <li><a href="../topik-a/A-kuis.html">Kuis 1</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="topik2-btn"
+            ><i class="bx bxs-book-reader"></i>Topik B
+            <span class="bx bx-caret-down second"></span>
+          </a>
+          <ul class="topik2-show">
+            <li><a href="../topik-b/B-pendahuluan.html">Pendahuluan</a></li>
+            <li><a href="../topik-b/B-materi.html">Materi</a></li>
+            <li><a href="../topik-b/B-kuis.html">Kuis 2</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="topik3-btn"
+            ><i class="bx bxs-book-reader"></i>Topik C
+            <span class="bx bx-caret-down three"></span>
+          </a>
+          <ul class="topik3-show">
+            <li><a href="../topik-c/C-pendahuluan.html">Pendahuluan</a></li>
+            <li><a href="../topik-c/C-materi.html">Materi</a></li>
+            <li><a href="../topik-c/C-kuis.html">Kuis 3</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="../true-evaluasi/evaluasi.html" class="eva-btn"
+            ><span class="bx bx-task"></span>Evaluasi
+          </a>
+        </li>
+        <li id="logoutBtn" class="keluar-btn">
+          <a> <i class="fa-solid fa-right-from-bracket"></i>Keluar </a>
+        </li>
+      </ul>
+    </nav>
+
+    <header>
+      <a href="profil-2.html" class="user">
+        <h6><span id="user-nama"></span></h6>
+        <abbr title="profil">
+          <img src="../assets/img/logo/user-log.svg" alt="Logo" />
+        </abbr>
+      </a>
+    </header>
+
+    <div class="main-content">
+      <div class="bg-navMateri">
+        <!-- <h4>Topik A : Bagaimana Bentuk Indonesiaku</h4> -->
+        <div class="nav-materi">
+          <button
+            class="active"
+            onclick="showMenu('mariMengamati')"
+            id="btnMariMengamati"
+          >
+            Mengamati
+          </button>
+          <button onclick="showMenu('mariMenanya')" id="btnMariMenanya">
+            Menanya
+          </button>
+          <button onclick="showMenu('mariMencoba')" id="btnMariMencoba">
+            Mencoba
+          </button>
+          <button onclick="showMenu('mariNalar')" id="btnMariNalar">
+            Menalar
+          </button>
+          <button onclick="showMenu('mariKomunikasi')" id="btnMariKomunikasi">
+            Mengomunikasikan
+          </button>
+        </div>
+
+        <div id="mariMengamati" style="display: block">
+          <center>
+            <p class="mengamativid">
+              Yuk, amati video “Mengenal Kondisi Geografis Indonesia” berikut
+              ini !
+            </p>
+            <figure>
+              <video id="video1" onended="stopVideo('video1hide')" controls>
+                <source
+                  src="../assets/video/Video1-maret.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+              <div class="btn-partvideo">
+                <button onclick="seekvideo(10)">Letak Geografis</button>
+                <button onclick="seekvideo(46)">5 Pulau Besar</button>
+                <button onclick="seekvideo(116)">Negara Maritim</button>
+                <button onclick="seekvideo(167)">Negara Agraris</button>
+              </div>
+              <figcaption>
+                video 1. Mengenal kondisi geografis Indonesia
+              </figcaption>
+            </figure>
+          </center>
+        </div>
+        <div id="mariMenanya" style="display: none">
+          <div class="A-menanyaJwb">
+            <div class="tooltip-container">
+              <button class="tooltip-trigger">
+                <b>Lihat Petunjuk Pengerjaan</b>
+              </button>
+              <div class="tooltip1">
+                <ol id="tooltip">
+                  <b>Mari Menanya!</b>
+                  <li>
+                    Buatlah pertanyaan berdasarkan informasi yang diperoleh dari
+                    video.
+                  </li>
+                  <li>
+                    Jawablah pertanyaan tersebut dengan ringkas dan jelas pada
+                    kolom jawaban yang telah disediakan.
+                  </li>
+                  <li>
+                    Isi semua kolom pertanyaan & jawaban yang ada sebelum
+                    mengirim.
+                  </li>
+                  <li>
+                    Silahkan tekan tombol "Kirim" apabila semua kolom sudah
+                    terisi.
+                  </li>
+                </ol>
+              </div>
+            </div>
+            <div class="bg-contoh">
+              <div class="contoh">
+                <h6>Contoh :</h6>
+                <br />
+                <p>
+                  Pertanyaan: Berdasarkan letak geografis, di benua mana letak
+                  negara Indonesia berada?
+                </p>
+                <p>Jawaban: Indonesia terletak di benua Asia.</p>
+              </div>
+            </div>
+            <ol>
+              <li class="mt-4">
+                <p class="subsoal">
+                  Silahkan isi kolom dengan Pertanyaan & Jawaban
+                </p>
+                <input
+                  type="text"
+                  id="menanya1_1"
+                  style="width: 100%"
+                  placeholder="*Isi pertanyaan Anda di sini"
+                />
+
+                <input
+                  type="text"
+                  id="jmenanya1_1"
+                  style="width: 100%"
+                  placeholder="*Isi jawaban Anda di sini"
+                />
+              </li>
+
+              <li class="mt-4">
+                <p class="subsoal">
+                  Silahkan isi kolom dengan Pertanyaan & Jawaban
+                </p>
+                <input
+                  type="text"
+                  id="menanya1_2"
+                  style="width: 100%"
+                  placeholder="*Isi pertanyaan Anda di sini"
+                />
+
+                <input
+                  type="text"
+                  id="jmenanya1_2"
+                  style="width: 100%"
+                  placeholder="*Isi jawaban Anda di sini"
+                />
+              </li>
+              <li class="mt-4">
+                <p class="subsoal">
+                  Silahkan isi kolom dengan Pertanyaan & Jawaban
+                </p>
+                <input
+                  type="text"
+                  id="menanya1_3"
+                  style="width: 100%"
+                  placeholder="*Isi pertanyaan Anda di sini"
+                />
+
+                <input
+                  type="text"
+                  id="jmenanya1_3"
+                  style="width: 100%"
+                  placeholder="*Isi jawaban Anda di sini"
+                />
+              </li>
+            </ol>
+            <div class="btnkirim">
+              <a id="btnKirimMenanya" type="button"
+                ><i class="bx bx-paper-plane"></i> Kirim</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div id="mariMencoba" style="display: none">
+          <div class="bg-mencoba">
+            <section>
+              <div class="tooltip-container">
+                <button class="tooltip-trigger">
+                  <b>Lihat Petunjuk Pengerjaan</b>
+                </button>
+                <div class="tooltip1">
+                  <ol id="tooltip">
+                    <b>Mari Mencoba!</b>
+                    <li>Tinjau setiap gambar peta pulau dengan cermat</li>
+                    <li>
+                      Identifikasi pulau yang ditunjukkan dalam setiap gambar
+                    </li>
+                    <li>
+                      Tulislah nama pulau tersebut di kotak jawaban yang
+                      terletak di bawah setiap gambar
+                    </li>
+                    <li>
+                      Pastikan ejaan nama pulau dan penulisan huruf kapitalnya
+                      benar
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </section>
+            <p class="mencoba-topikA">
+              Ayo, cobalah untuk memberi nama ke-5 pulau besar di Indonesia
+              berikut ini dengan benar!
+            </p>
+            <div class="mencoba1">
+              <div class="row">
+                <div class="image-container">
+                  <img src="../assets/img/pulau/kalimantan.jpg" alt="Pulau 1" />
+                  <input
+                    class="answer-input"
+                    type="text"
+                    placeholder="*Nama Pulau"
+                    id="answer1"
+                  />
+                  <div class="popup-image">
+                    <span>&times;</span>
+                    <img src="../assets/img/pulau/kalimantan.jpg" />
+                  </div>
+                </div>
+
+                <div class="image-container">
+                  <img src="../assets/img/pulau/sumatera.jpg" alt="Pulau 2" />
+                  <input
+                    class="answer-input"
+                    type="text"
+                    placeholder="*Nama Pulau"
+                    id="answer2"
+                  />
+                </div>
+
+                <div class="image-container">
+                  <img src="../assets/img/pulau/sulawesi.jpg" alt="Pulau 3" />
+                  <input
+                    class="answer-input"
+                    type="text"
+                    placeholder="*Nama Pulau"
+                    id="answer3"
+                  />
+                </div>
+
+                <div class="image-container">
+                  <img src="../assets/img/pulau/jawa.jpg" alt="Pulau 4" />
+                  <input
+                    class="answer-input"
+                    type="text"
+                    placeholder="*Nama Pulau"
+                    id="answer4"
+                  />
+                </div>
+
+                <div class="image-container">
+                  <img src="../assets/img/pulau/papua.jpg" alt="Pulau 5" />
+                  <input
+                    class="answer-input"
+                    type="text"
+                    placeholder="*Nama Pulau"
+                    id="answer5"
+                  />
+                </div>
+                <div id="feedback"></div>
+                <div class="btn-cekundo">
+                  <button class="btn-cekjwb" onclick="checkAnswers()">
+                    <i class="fa-regular fa-circle-check"></i>&nbsp; Cek Jawaban
+                  </button>
+                  <button class="btn-undo" onclick="resetAnswers()">
+                    <i class="bx bx-refresh"></i> Ulangi Jawaban
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="mariNalar" style="display: none">
+          <!-- <h5>Mari Menalar !</h5> -->
+          <div class="bg-menalar">
+            <section>
+              <div class="tooltip-container">
+                <button class="tooltip-trigger">
+                  <b>Lihat Petunjuk Pengerjaan</b>
+                </button>
+                <div class="tooltip1">
+                  <ol id="tooltip">
+                    <b>Mari Menalar!</b>
+                    <li>Baca setiap pernyataan dengan cermat</li>
+                    <li>
+                      Beri tanda centang pada kotak "iya" jika pernyataan benar
+                    </li>
+                    <li>
+                      Beri tanda centang pada kotak "tidak" jika pernyataan
+                      salah
+                    </li>
+                    <li>
+                      Periksa dan pastikan penandaan centang sesuai dengan
+                      kebenaran pernyataan
+                    </li>
+                    <li>
+                      Untuk memeriksa jawaban silahkan tekan tombol “Cek
+                      Jawaban”
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </section>
+            <div class="menalar2" id="menalar2-1">
+              <!-- <h6>Pengelompokkan Flora / Tumbuhan</h6> -->
+              <center>
+                <table>
+                  <tr>
+                    <th class="no">No</th>
+                    <th style="text-align: center">Pernyataan</th>
+                    <th style="text-align: center; min-width: 60px">Iya</th>
+                    <th style="text-align: center">Tidak</th>
+
+                    <th style="text-align: center">Keterangan</th>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td id="namafauna">
+                      Negara Indonesia berbentuk kepulauan dengan 17.508 pulau
+                      yang tersebar dari Sabang sampai Merauke
+                    </td>
+
+                    <td>
+                      <input
+                        type="checkbox"
+                        class="checkbox"
+                        data-jawaban="benar"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        class="checkbox"
+                        data-jawaban="salah"
+                      />
+                    </td>
+                    <td class="keterangan"></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td id="namafauna">
+                      Indonesia memiliki wilayah lautan yang lebih besar jika
+                      dibandingkan dengan wilayah daratan
+                    </td>
+
+                    <td>
+                      <input
+                        type="checkbox"
+                        class="checkbox"
+                        data-jawaban="benar"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        class="checkbox"
+                        data-jawaban="salah"
+                      />
+                    </td>
+                    <td class="keterangan"></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td id="namafauna">
+                      Mayoritas penduduk di negara maritim bekerja sebagai
+                      petani
+                    </td>
+
+                    <td>
+                      <input
+                        type="checkbox"
+                        class="checkbox"
+                        data-jawaban="salah"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        class="checkbox"
+                        data-jawaban="benar"
+                      />
+                    </td>
+                    <td class="keterangan"></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td id="namafauna">
+                      Mayoritas penduduk di negara agraris bekerja sebagai
+                      nelayan
+                    </td>
+
+                    <td>
+                      <input
+                        type="checkbox"
+                        class="checkbox"
+                        data-jawaban="salah"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        class="checkbox"
+                        data-jawaban="benar"
+                      />
+                    </td>
+                    <td class="keterangan"></td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td id="namafauna">
+                      Indonesia terletak di antara dua Benua dan dua Samudra
+                    </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        class="checkbox"
+                        data-jawaban="benar"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        class="checkbox"
+                        data-jawaban="salah"
+                      />
+                    </td>
+
+                    <td class="keterangan"></td>
+                  </tr>
+                </table>
+              </center>
+              <button id="cekJawaban" class="btn-cekjwb" data-table="1">
+                <i class="fa-regular fa-circle-check"></i>&nbsp; Cek Jawaban
+              </button>
+              <button id="ulangiJawaban" class="btn-undo" data-table="1">
+                <i class="bx bx-refresh"></i>Ulangi
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="mariKomunikasi" style="display: none">
+          <div class="bg-mengomunikasikan">
+            <div class="tooltip-container">
+              <button class="tooltip-trigger">
+                <b>Lihat Petunjuk Pengerjaan</b>
+              </button>
+              <div class="tooltip1">
+                <ol id="tooltip">
+                  <b>Mari Mengomunikasikan!</b>
+                  <li>
+                    Buatlah kesimpulan tentang materi Topik A "Bagaimana Bentuk
+                    Indonesiaku"
+                  </li>
+                  <li>
+                    Pastikan kesimpulanmu mencerminkan pemahaman yang mendalam
+                    tentang topik tersebut
+                  </li>
+                  <li>
+                    Tulislah kesimpulan dengan bahasa yang sederhana agar mudah
+                    dipahami oleh teman-teman sekelas
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <br />
+            <br />
+            <div class="mb-3">
+              <label for="exampleFormControlkesimpulan" class="form-label"
+                >Buatlah kesimpulan dari materi yang dipelajari dan terangkan
+                bagaimana letak geografis tempatmu tinggal mempengaruhi
+                kehidupan sehari-hari.</label
+              >
+              <textarea
+                class="form-control"
+                id="mengomunikasikan1"
+                rows="6"
+                placeholder="Isi jawaban Anda di sini"
+              ></textarea>
+            </div>
+
+            <button type="button" id="btnKirim" onclick="simpanJawaban()">
+              <i class="bx bx-paper-plane"></i> &nbsp;Kirim Jawaban
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function showMenu(menu) {
+        // Menyembunyikan semua menu
+        document.getElementById("mariMengamati").style.display = "none";
+        document.getElementById("mariMenanya").style.display = "none";
+        document.getElementById("mariMencoba").style.display = "none";
+        document.getElementById("mariNalar").style.display = "none";
+        document.getElementById("mariKomunikasi").style.display = "none";
+
+        // Menampilkan menu yang dipilih
+        document.getElementById(menu).style.display = "block";
+
+        // Menghapus kelas "active" dari semua button
+        const buttons = document.querySelectorAll(".nav-materi button");
+        buttons.forEach((button) => {
+          button.classList.remove("active");
+        });
+
+        // Menambahkan kelas "active" pada button yang diklik
+        const activeButton = document.getElementById(
+          "btn" + menu.charAt(0).toUpperCase() + menu.slice(1)
+        );
+        activeButton.classList.add("active");
+      }
+    </script>
+
+    <script>
+      // sidebar terbuka ketika layar lebar
+      $(document).ready(function () {
+        if ($(window).width() > 768) {
+          $(".btn").addClass("click");
+          $(".sidebar").addClass("show");
+        }
+      });
+      // button menampilkan sidebar
+      $(".btn").click(function () {
+        $(this).toggleClass("click");
+        $(".sidebar").toggleClass("show");
+      });
+      // js untuk menampilkan submenu pada sidebar
+      $(".topik1-btn").click(function () {
+        $("nav ul .topik1-show").toggleClass("show");
+        $("nav ul .first").toggleClass("rotate");
+      });
+      $(".topik2-btn").click(function () {
+        $("nav ul .topik2-show").toggleClass("show1");
+        $("nav ul .second").toggleClass("rotate");
+      });
+      $(".topik3-btn").click(function () {
+        $("nav ul .topik3-show").toggleClass("show2");
+        $("nav ul .three").toggleClass("rotate");
+      });
+      $("nav ul li").click(function () {
+        $(this).addClass("active").siblings().removeClass("active");
+      });
+      $("nav ul ul li a").click(function () {
+        $(this).addClass("active").siblings().removeClass("active");
+      });
+      // Menampilkan submenu .topik1-show secara default saat halaman dimuat
+      $(".topik1-show").addClass("show");
+    </script>
+
+    <!-- zoom gambar -->
+    <script>
+      document.querySelectorAll(".image-container img").forEach((image) => {
+        image.onclick = () => {
+          document.querySelector(".popup-image").style.display = "block";
+          document.querySelector(".popup-image img").src =
+            image.getAttribute("src");
+        };
+      });
+      document.querySelector(".popup-image span").onclick = () => {
+        document.querySelector(".popup-image").style.display = "none";
+      };
+    </script>
+
+    <!-- script-drag and drop -->
+    <script>
+      const columns = document.querySelectorAll(".column");
+      const images = document.querySelectorAll(".image");
+      const undoButton = document.querySelector(".undo-button");
+      const defaultPositions = {};
+
+      columns.forEach((column) => {
+        defaultPositions[column.dataset.target] = column.innerHTML;
+        column.addEventListener("dragover", handleDragOver);
+        column.addEventListener("drop", handleDrop);
+      });
+
+      images.forEach((image) => {
+        image.addEventListener("dragstart", handleDragStart);
+      });
+
+      function handleDragStart(event) {
+        event.dataTransfer.setData("text/plain", event.target.dataset.source);
+      }
+
+      function handleDragOver(event) {
+        event.preventDefault();
+      }
+
+      function handleDrop(event) {
+        event.preventDefault();
+        const source = event.dataTransfer.getData("text/plain");
+        const target = event.target;
+
+        if (target.classList.contains("column")) {
+          if (target.dataset.target === source) {
+            target.classList.remove("incorrect");
+            target.classList.add("correct");
+            target.innerHTML = `<img class="image" src="../assets/img/dragndrop1/gambar${source}.jpg">`;
+            const image = document.querySelector(`[data-source="${source}"]`);
+            image.style.display = "none";
+          } else {
+            target.classList.add("incorrect");
+          }
+        }
+      }
+
+      function resetGame() {
+        columns.forEach((column) => {
+          column.innerHTML = defaultPositions[column.dataset.target];
+          column.classList.remove("correct", "incorrect");
+        });
+
+        images.forEach((image) => {
+          image.style.display = "block";
+        });
+      }
+    </script>
+
+    <!-- script menalar -->
+    <script>
+      function cekJawaban(isianId, jawabanRegex, cekIsianId) {
+        let isi = document.getElementById(isianId).value.toLowerCase();
+        let jawaban = new RegExp(jawabanRegex);
+        let result = jawaban.test(isi);
+
+        let cekIsianElem = document.getElementById(cekIsianId);
+        let isianElem = document.getElementById(isianId);
+
+        if (result) {
+          cekIsianElem.style.color = "green";
+          isianElem.style.border = "2px solid green";
+          isianElem.style.backgroundColor = "green";
+          isianElem.style.color = "white";
+        } else {
+          cekIsianElem.style.color = "red";
+          isianElem.style.border = "2px solid red";
+          isianElem.style.background = "red";
+          isianElem.style.color = "white";
+        }
+      }
+
+      function resetIsian(isianId, cekIsianId) {
+        let isianElem = document.getElementById(isianId);
+        let cekIsianElem = document.getElementById(cekIsianId);
+
+        isianElem.value = "";
+        cekIsianElem.style.color = "";
+        isianElem.style.border = "2px solid black";
+        isianElem.style.background = "white";
+        isianElem.style.color = "black";
+      }
+
+      function cekSemuaJawaban() {
+        let semuaBenar = true;
+        let adaJawabanKosong = false;
+
+        cekJawaban("isian1", "17.508", "cekIsian1");
+        cekJawaban("isian2", "laut", "cekIsian2");
+        cekJawaban("isian3", "petani", "cekIsian3");
+        cekJawaban("isian4", "nelayan", "cekIsian4");
+        cekJawaban(
+          "isian5",
+          "^(?=.*\\baustralia\\b)(?=.*\\basia\\b).*$",
+          "cekIsian5"
+        );
+        cekJawaban(
+          "isian6",
+          "^(?=.*\\bpasifik\\b)(?=.*\\bhindia\\b).*$",
+          "cekIsian6"
+        );
+
+        for (let i = 1; i <= 6; i++) {
+          let cekIsianElem = document.getElementById(`cekIsian${i}`);
+          let isianValue = document.getElementById(`isian${i}`).value;
+
+          if (cekIsianElem.style.color !== "green") {
+            if (isianValue === "") {
+              adaJawabanKosong = true;
+              break;
+            }
+            semuaBenar = false;
+          }
+        }
+
+        if (semuaBenar && !adaJawabanKosong) {
+          document.getElementById("feedback").innerHTML =
+            "Semua jawaban benar!";
+          document.getElementById("feedback").style.color = "green";
+        } else if (adaJawabanKosong) {
+          document.getElementById("feedback").innerHTML =
+            "Silahkan isi semua jawaban terlebih dahulu!";
+          document.getElementById("feedback").style.color = "red";
+        } else {
+          document.getElementById("feedback").innerHTML =
+            "Maaf ada jawaban yang belum tepat!";
+          document.getElementById("feedback").style.color = "red";
+        }
+      }
+
+      function resetSemuaIsian() {
+        resetIsian("isian1", "cekIsian1");
+        resetIsian("isian2", "cekIsian2");
+        resetIsian("isian3", "cekIsian3");
+        resetIsian("isian4", "cekIsian4");
+        resetIsian("isian5", "cekIsian5");
+        resetIsian("isian6", "cekIsian6");
+        // Hapus pesan feedback
+        document.getElementById("feedback").innerHTML = "";
+      }
+    </script>
+
+    <script>
+      // Ambil data nama dari localStorage
+      const nama = localStorage.getItem("nama");
+
+      // Periksa apakah data nama ada
+      if (nama) {
+        const namaSpan = document.getElementById("user-nama");
+        namaSpan.textContent = nama; // Memasukkan nama ke dalam elemen span
+      }
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Ambil data nama dari localStorage
+        const nama = localStorage.getItem("nama");
+
+        // Periksa apakah data nama ada
+        if (nama) {
+          const namaSpan = document.getElementById("user-nama");
+          namaSpan.textContent = nama; // Memasukkan nama ke dalam elemen span
+        } else {
+          // Tampilkan SweetAlert jika data tidak ditemukan
+          Swal.fire({
+            title: "Perhatian",
+            text: "Silahkan login terlebih dahulu.",
+            icon: "warning",
+            confirmButtonText: "OK",
+          }).then(() => {
+            // Redirect to login page
+            window.location.href = "../index.html";
+          });
+        }
+
+        const logoutButton = document.getElementById("logoutBtn");
+
+        logoutButton.addEventListener("click", function () {
+          Swal.fire({
+            title: "Keluar Akun",
+            text: "Anda yakin ingin keluar akun?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Ya, Keluar",
+            cancelButtonText: "Batal",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              // Redirect to login page
+              window.location.href = "../index.html";
+
+              // Remove local storage data
+              localStorage.removeItem("nama");
+              localStorage.removeItem("nisn");
+              localStorage.removeItem("kelas");
+            }
+          });
+        });
+      });
+    </script>
+
+    <!-- Template Main JS File -->
+    <script src="tabel/tabel-INT.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/db_menanya1.js"></script>
+    <script src="../assets/js/mencoba1.js"></script>
+    <script src="../assets/js/menalar1.js"></script>
+
+    <!-- <script src="../assets/js/mengomunikasi1.js"></script> -->
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js"
+    ></script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        child,
+        set,
+        get,
+        update,
+        remove,
+        query,
+        onValue,
+      } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+      // Konfigurasi Firebase Anda
+      const firebaseConfig = {
+        apiKey: "AIzaSyBpuaiGW2az7vtpBxIBioMwS-UtqyanUeQ",
+        authDomain: "indonesiakukayaraya-20be9.firebaseapp.com",
+        databaseURL:
+          "https://indonesiakukayaraya-20be9-default-rtdb.firebaseio.com",
+        projectId: "indonesiakukayaraya-20be9",
+        storageBucket: "indonesiakukayaraya-20be9.appspot.com",
+        messagingSenderId: "15860856240",
+        appId: "1:15860856240:web:c9eacf9097e5db1bf09275",
+        measurementId: "G-59PE0K6M2M",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Referensi
+        const mengomunikasikan1 = document.getElementById("mengomunikasikan1");
+        const btnKirim = document.getElementById("btnKirim");
+        const tampilData = document.getElementById("tabelData"); // Ganti "tabelData" dengan ID tabel yang sesuai
+
+        btnKirim.addEventListener("click", simpanJawaban);
+      });
+
+      function simpanJawaban() {
+        var jawaban = mengomunikasikan1.value;
+
+        if (jawaban.trim() !== "") {
+          const userNISN = localStorage.getItem("nisn");
+          const dbRef = ref(
+            db,
+            "UserSiswa/" + userNISN + "/mengomunikasikan/mengomunikasikan-1"
+          );
+
+          set(dbRef, {
+            jawaban: jawaban,
+            tanggal: new Date().toLocaleDateString(),
+            waktu: new Date().toLocaleTimeString(),
+          })
+            .then(() => {
+              Swal.fire({
+                icon: "success",
+                title: "Jawaban Terkirim!",
+                text: "Jawaban Anda berhasil disimpan di database.",
+              });
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              Swal.fire({
+                icon: "error",
+                title: "Gagal!",
+                text: "Terjadi kesalahan saat menyimpan jawaban.",
+              });
+            });
+        } else {
+          Swal.fire({
+            icon: "warning",
+            title: "Peringatan!",
+            text: "Isi jawaban terlebih dahulu sebelum mengirim.",
+          });
+        }
+      }
+      // Tambahkan event listener untuk tombol kirim
+      btnKirim.addEventListener("click", simpanJawaban);
+
+      // kode js menanya
+      document.addEventListener("DOMContentLoaded", function () {
+        // Inisialisasi tombol kirim untuk Mari Menanya
+        const btnKirimMenanya = document.getElementById("btnKirimMenanya");
+
+        // Tambahkan event listener untuk tombol kirim di Mari Menanya
+        btnKirimMenanya.addEventListener("click", function () {
+          // Anda dapat menyesuaikan loop ini berdasarkan jumlah elemen input yang Anda miliki
+          for (let menanyaIndex = 1; menanyaIndex <= 1; menanyaIndex++) {
+            for (let subIndex = 1; subIndex <= 3; subIndex++) {
+              simpanPertanyaanJawaban(menanyaIndex, subIndex);
+            }
+          }
+        });
+      });
+
+      function simpanPertanyaanJawaban(menanyaIndex) {
+        const userNISN = localStorage.getItem("nisn");
+        const dbRef = ref(
+          db,
+          `UserSiswa/${userNISN}/menanya/menanya-${menanyaIndex}`
+        );
+
+        // Inisialisasi objek untuk menyimpan pertanyaan dan jawaban
+        let dataToSave = {};
+
+        // Loop melalui setiap input pertanyaan & jawaban
+        for (let subIndex = 1; subIndex <= 3; subIndex++) {
+          const pertanyaanId = `menanya${menanyaIndex}_${subIndex}`;
+          const jawabanId = `j${pertanyaanId}`;
+          const pertanyaan = document.getElementById(pertanyaanId).value;
+          const jawaban = document.getElementById(jawabanId).value;
+
+          // Pastikan pertanyaan dan jawaban tidak kosong
+          if (pertanyaan.trim() !== "" && jawaban.trim() !== "") {
+            // Simpan pertanyaan dan jawaban dalam objek
+            dataToSave[`pertanyaan${subIndex}`] = pertanyaan;
+            dataToSave[`jawaban${subIndex}`] = jawaban;
+          } else {
+            Swal.fire({
+              icon: "warning",
+              title: "Peringatan!",
+              text: "Isi pertanyaan dan jawaban terlebih dahulu sebelum mengirim.",
+            });
+            return; // Hentikan penyimpanan jika ada pertanyaan atau jawaban yang kosong
+          }
+        }
+
+        // Simpan data ke database Firebase
+        set(dbRef, dataToSave)
+          .then(() => {
+            Swal.fire({
+              icon: "success",
+              title: "Pertanyaan & Jawaban Terkirim!",
+              text: "Pertanyaan dan jawaban Anda berhasil dikirim",
+            });
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            Swal.fire({
+              icon: "error",
+              title: "Gagal!",
+              text: "Terjadi kesalahan saat menyimpan pertanyaan dan jawaban.",
+            });
+          });
+      }
+    </script>
+
+    <script>
+      // Fungsi untuk melompat ke detik tertentu dalam video
+      function seekvideo(second) {
+        var video = document.getElementById("video1");
+        video.currentTime = second; // Mengatur waktu saat ini ke nilai detik yang diberikan
+      }
+
+      // Fungsi untuk menghentikan video saat berakhir
+      function stopVideo(videoId) {
+        var video = document.getElementById(videoId);
+        video.pause();
+      }
+    </script>
+  </body>
+</html>

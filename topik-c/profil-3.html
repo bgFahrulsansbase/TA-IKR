@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Siswa | Indonesiaku Kaya Raya</title>
+    <!-- Font-bagelfatone -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap"
+      rel="stylesheet"
+    />
+    <!-- ICON -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- CSS File -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+      rel="stylesheet"
+    />
+    <link href="../assets/css/profil.css" rel="stylesheet" />
+
+    <link rel="icon" type="image/png" href="assets/img/logo/iconwebIKR.svg" />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js"></script>
+
+    <!-- Firebase Konfigurasi -->
+  </head>
+  <body>
+    <div class="bglatar">
+      <a href="C-kuis.html"
+        ><button class="kembali-btn">
+          <i class="fa-solid fa-backward-step"></i>&nbsp;Kembali
+        </button></a
+      >
+      <div class="bg-card">
+        <div class="card">
+          <div class="profil">
+            <img src="assets/img/logo/user-log.svg" alt="" />
+            <div class="nama-nisn">
+              <h4><span id="user-nama"></span></h4>
+              <div class="detail">
+                <h6>NISN. &nbsp;<span id="user-nisn"></span></h6>
+                <h6>Kelas: &nbsp;<span id="user-kelas"></span></h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="isi-hasil">
+            <table class="topik">
+              <thead>
+                <tr>
+                  <th class="kolom1">Nilai Kuis 1</th>
+
+                  <th class="kolom2">Nilai Kuis 2</th>
+
+                  <th class="kolom3">Nilai Kuis 3</th>
+
+                  <th class="kolom4">Nilai Evaluasi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span id="nilaiKuis1"></span></td>
+                  <td><span id="nilaiKuis2"></span></td>
+                  <td><span id="nilaiKuis3"></span></td>
+                  <td><span id="nilaiEvaluasi"></span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="topik">
+              <thead>
+                <tr>
+                  <th class="nomor">No.</th>
+                  <th class="koloma1">Lembar Kerja Topik A</th>
+                  <th class="koloma2">Nilai</th>
+                  <th class="koloma3">Catatan Guru</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Menanya</td>
+                  <td><span id="nilaiMenanya1"></span></td>
+                  <td><span id="catatanMenanya1"></span></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Mengomunikasikan</td>
+                  <td><span id="nilaiMengomunikasikan1"></span></td>
+                  <td><span id="catatanMengomunikasikan1"></span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="topik">
+              <thead>
+                <tr>
+                  <th class="nomor">No.</th>
+
+                  <th class="koloma1">Lembar Kerja Topik B</th>
+
+                  <th class="koloma2">Nilai</th>
+
+                  <th class="koloma3">Catatan Guru</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Menanya</td>
+                  <td><span id="nilaiMenanya2"></span></td>
+                  <td><span id="catatanMenanya2"></span></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Mengomunikasikan</td>
+                  <td><span id="nilaiMengomunikasikan2"></span></td>
+                  <td><span id="catatanMengomunikasikan2"></span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <table class="topik">
+              <thead>
+                <tr>
+                  <th class="nomor">No.</th>
+
+                  <th class="koloma1">Lembar Kerja Topik C</th>
+
+                  <th class="koloma2">Nilai</th>
+
+                  <th class="koloma3">Catatan Guru</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Menanya</td>
+                  <td><span id="nilaiMenanya3"></span></td>
+                  <td><span id="catatanMenanya3"></span></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Mengomunikasikan</td>
+                  <td><span id="nilaiMengomunikasikan3"></span></td>
+                  <td><span id="catatanMengomunikasikan3"></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bagian skrip JavaScript untuk menampilkan nilai kuis dan evaluasi -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        onValue,
+      } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+
+      // Firebase Konfigurasi
+      const firebaseConfig = {
+        apiKey: "AIzaSyBpuaiGW2az7vtpBxIBioMwS-UtqyanUeQ",
+        authDomain: "indonesiakukayaraya-20be9.firebaseapp.com",
+        databaseURL:
+          "https://indonesiakukayaraya-20be9-default-rtdb.firebaseio.com",
+        projectId: "indonesiakukayaraya-20be9",
+        storageBucket: "indonesiakukayaraya-20be9.appspot.com",
+        messagingSenderId: "15860856240",
+        appId: "1:15860856240:web:c9eacf9097e5db1bf09275",
+        measurementId: "G-59PE0K6M2M",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase();
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Ambil data nisn dan kelas dari localStorage
+        const nisn = localStorage.getItem("nisn");
+
+        // Inisialisasi elemen HTML
+        const namaSpan = document.getElementById("user-nama");
+        const nisnSpan = document.getElementById("user-nisn");
+        const kelasSpan = document.getElementById("user-kelas");
+
+        const nilaiMenanya1Element = document.getElementById("nilaiMenanya1");
+        const nilaiMenanya2Element = document.getElementById("nilaiMenanya2");
+        const nilaiMenanya3Element = document.getElementById("nilaiMenanya3");
+
+        const catatanMenanya1Element =
+          document.getElementById("catatanMenanya1");
+        const catatanMenanya2Element =
+          document.getElementById("catatanMenanya2");
+        const catatanMenanya3Element =
+          document.getElementById("catatanMenanya3");
+
+        const nilaiMengomunikasikan1Element = document.getElementById(
+          "nilaiMengomunikasikan1"
+        );
+        const nilaiMengomunikasikan2Element = document.getElementById(
+          "nilaiMengomunikasikan2"
+        );
+        const nilaiMengomunikasikan3Element = document.getElementById(
+          "nilaiMengomunikasikan3"
+        );
+
+        const catatanMengomunikasikan1Element = document.getElementById(
+          "catatanMengomunikasikan1"
+        );
+        const catatanMengomunikasikan2Element = document.getElementById(
+          "catatanMengomunikasikan2"
+        );
+        const catatanMengomunikasikan3Element = document.getElementById(
+          "catatanMengomunikasikan3"
+        );
+
+        const nilaiKuis1Element = document.getElementById("nilaiKuis1");
+        const nilaiKuis2Element = document.getElementById("nilaiKuis2");
+        const nilaiKuis3Element = document.getElementById("nilaiKuis3");
+
+        const evaluasiElement = document.getElementById("nilaiEvaluasi");
+
+        // Mengambil referensi data siswa dari Firebase Realtime Database
+        const siswaRef = ref(db, `UserSiswa/${nisn}`);
+
+        onValue(siswaRef, (snapshot) => {
+          const siswaData = snapshot.val();
+
+          if (siswaData) {
+            // Set data nisn, nama, dan kelas ke dalam elemen
+            nisnSpan.textContent = siswaData.nisn;
+            namaSpan.textContent = siswaData.nama;
+            kelasSpan.textContent = siswaData.kelas;
+
+            // Menampilkan nilai kuis 1
+            const kuis1Data = siswaData.kuis["kuis-1"];
+            nilaiKuis1Element.innerText = `${kuis1Data?.skor || "-"}`;
+
+            // Menampilkan nilai kuis 2
+            const kuis2Data = siswaData.kuis["kuis-2"];
+            nilaiKuis2Element.innerText = `${kuis2Data?.skor || "-"}`;
+
+            // Menampilkan nilai kuis 3
+            const kuis3Data = siswaData.kuis["kuis-3"];
+            nilaiKuis3Element.innerText = `${kuis3Data?.skor || "-"}`;
+
+            // Menampilkan nilai evaluasi
+            const evaluasiData = siswaData.evaluasi;
+            evaluasiElement.innerText = `${evaluasiData?.skor || "-"}`;
+
+            // Menampilkan nilai menanya 1
+            const menanya1Data = siswaData.menanya["menanya-1"];
+            nilaiMenanya1Element.innerText = ` ${menanya1Data?.nilai || "-"}`;
+            // Menampilkan nilai menanya 2
+            const menanya2Data = siswaData.menanya["menanya-2"];
+            nilaiMenanya2Element.innerText = ` ${menanya2Data?.nilai || "-"}`;
+            // Menampilkan nilai menanya 3
+            const menanya3Data = siswaData.menanya["menanya-3"];
+            nilaiMenanya3Element.innerText = ` ${menanya3Data?.nilai || "-"}`;
+
+            // Menampilkan catatan menanya 1
+            const catatanmenanya1Data = siswaData.menanya["menanya-1"];
+            catatanMenanya1Element.innerText = ` ${
+              menanya1Data?.catatan || "-"
+            }`;
+            // Menampilkan catatan menanya 2
+            const catatanmenanya2Data = siswaData.menanya["menanya-2"];
+            catatanMenanya2Element.innerText = ` ${
+              menanya2Data?.catatan || "-"
+            }`;
+            // Menampilkan catatan menanya 3
+            const catatanmenanya3Data = siswaData.menanya["menanya-3"];
+            catatanMenanya3Element.innerText = ` ${
+              menanya3Data?.catatan || "-"
+            }`;
+
+            // Menampilkan nilai mengomunikasikan 1
+            const mengomunikasikan1Data =
+              siswaData.mengomunikasikan["mengomunikasikan-1"];
+            nilaiMengomunikasikan1Element.innerText = ` ${
+              mengomunikasikan1Data?.nilai || "-"
+            }`;
+
+            // Menampilkan nilai mengomunikasikan 2
+            const mengomunikasikan2Data =
+              siswaData.mengomunikasikan["mengomunikasikan-2"];
+            nilaiMengomunikasikan2Element.innerText = ` ${
+              mengomunikasikan2Data?.nilai || "-"
+            }`;
+
+            // Menampilkan nilai mengomunikasikan 3
+            const mengomunikasikan3Data =
+              siswaData.mengomunikasikan["mengomunikasikan-3"];
+            nilaiMengomunikasikan3Element.innerText = ` ${
+              mengomunikasikan3Data?.nilai || "-"
+            }`;
+
+            // Menampilkan nilai mengomunikasikan 1
+            const catatanmengomunikasikan1Data =
+              siswaData.mengomunikasikan["mengomunikasikan-1"];
+            catatanMengomunikasikan1Element.innerText = ` ${
+              mengomunikasikan1Data?.catatan || "-"
+            }`;
+
+            // Menampilkan nilai mengomunikasikan 2
+            const catatanmengomunikasikan2Data =
+              siswaData.mengomunikasikan["mengomunikasikan-2"];
+            catatanMengomunikasikan2Element.innerText = ` ${
+              mengomunikasikan2Data?.catatan || "-"
+            }`;
+
+            // Menampilkan nilai mengomunikasikan 3
+            const catatanmengomunikasikan3Data =
+              siswaData.mengomunikasikan["mengomunikasikan-3"];
+            catatanMengomunikasikan3Element.innerText = ` ${
+              mengomunikasikan3Data?.catatan || "-"
+            }`;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

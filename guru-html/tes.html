@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit KKM</title>
+
+    <!-- ICON -->
+    <link href="/fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="/fontawesome/css/brands.css" rel="stylesheet" />
+    <link href="/fontawesome/css/solid.css" rel="stylesheet" />
+
+    <!-- Jquery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      charset="UTF-8"
+    ></script>
+
+    <!-- Boostrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Roboto+Flex:opsz,wght@8..144,500&family=Signika+Negative:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- css -->
+    <link href="/css/Materi/materiIndex.css" rel="stylesheet" />
+    <link href="/css/materiResponsive.css" rel="stylesheet" />
+    <link href="/css/HalamanGuru/tbGuru.css" rel="stylesheet" />
+
+    <link rel="icon" type="image/png" href="/img/iconWebsite.svg" />
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="sidebarr">
+      <div class="logo-details">
+        <i class="fa-solid fa-scale-balanced"></i>
+        <span class="logo_name">PLSV & PtLSV</span>
+      </div>
+
+      <ul class="nav-link">
+        <!-- Data Siswa -->
+        <li>
+          <div class="iconn-link">
+            <a class="menubar" href="/html/halamanguru/guru">
+              <i class="fa-sharp fa-solid fa-users-line"></i>
+              <span class="link_nama">Data Siswa</span>
+            </a>
+          </div>
+          <ul class="sub-menuu blankk">
+            <div class="boxSub-menuu">
+              <li>
+                <a
+                  class="link_nama"
+                  href="/html/halamanguru/guru"
+                  style="pointer-events: painted"
+                  >Data Siswa</a
+                >
+              </li>
+            </div>
+          </ul>
+        </li>
+
+        <!--  Rekap Tugas -->
+        <li>
+          <div class="iconn-link">
+            <a href="/html/halamanguru/rekaptugas">
+              <i class="fa-sharp fa-solid fa-list-check"></i>
+              <span class="link_nama">Rekap Tugas</span>
+            </a>
+          </div>
+          <ul class="sub-menuu blankk">
+            <div class="boxSub-menuu">
+              <li>
+                <a
+                  class="link_nama"
+                  href="/html/halamanguru/rekaptugas"
+                  style="pointer-events: painted"
+                  >Rekap Tugas</a
+                >
+              </li>
+            </div>
+          </ul>
+        </li>
+
+        <!-- Rekap Kuis -->
+        <li>
+          <div class="iconn-link">
+            <a href="/html/halamanguru/rekapkuis">
+              <i class="fa-sharp fa-solid fa-list-check"></i>
+              <span class="link_nama">Rekap Kuis</span>
+            </a>
+          </div>
+          <ul class="sub-menuu blankk">
+            <div class="boxSub-menuu">
+              <li>
+                <a
+                  class="link_nama"
+                  href="/html/halamanguru/rekapkuis"
+                  style="pointer-events: painted"
+                  >Rekap Kuis</a
+                >
+              </li>
+            </div>
+          </ul>
+        </li>
+
+        <!-- Nilai Evaluasi -->
+        <li>
+          <div class="iconn-link">
+            <a href="/html/halamanguru/nilaievaluasi">
+              <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+              <span class="link_nama">Nilai Evaluasi</span>
+            </a>
+          </div>
+          <ul class="sub-menuu blankk">
+            <div class="boxSub-menuu">
+              <li>
+                <a
+                  class="link_nama"
+                  href="/html/halamanguru/nilaievaluasi"
+                  style="pointer-events: painted"
+                  >Nilai Evaluasi</a
+                >
+              </li>
+            </div>
+          </ul>
+        </li>
+
+        <!-- Edit KKM -->
+        <li>
+          <div class="iconn-link aktif">
+            <a href="#">
+              <i class="fa-sharp fa-solid fa-square-pen"></i>
+              <span class="link_nama">Edit KKM</span>
+            </a>
+          </div>
+          <ul class="sub-menuu blankk">
+            <div class="boxSub-menuu">
+              <li class="aktif2">
+                <a class="link_nama" href="#" style="pointer-events: painted"
+                  >Edit KKM</a
+                >
+              </li>
+            </div>
+          </ul>
+        </li>
+
+        <!-- Data Kelas -->
+        <li>
+          <div class="iconn-link">
+            <a href="/html/halamanguru/datakelas">
+              <i class="fa-sharp fa-solid fa-school"></i>
+              <span class="link_nama">Data Kelas</span>
+            </a>
+          </div>
+          <ul class="sub-menuu blankk">
+            <div class="boxSub-menuu">
+              <li>
+                <a
+                  class="link_nama"
+                  href="/html/halamanguru/datakelas"
+                  style="pointer-events: painted"
+                  >Data Kelas</a
+                >
+              </li>
+            </div>
+          </ul>
+        </li>
+
+        <!-- LogOutKeluar -->
+        <li>
+          <div class="iconn-link">
+            <a href="#" onclick="LogOut()">
+              <i
+                class="fa-sharp fa-solid fa-right-from-bracket text-danger"
+              ></i>
+              <span class="link_nama text-danger">Logout</span>
+            </a>
+          </div>
+          <ul class="sub-menuu blankk">
+            <div class="boxSub-menuu">
+              <li>
+                <a class="link_nama" href="#" style="pointer-events: painted"
+                  >Logout</a
+                >
+              </li>
+            </div>
+          </ul>
+        </li>
+
+        <!-- Akun Profil -->
+        <li>
+          <div class="profile-details">
+            <div class="name-job text-capitalize w-100 mx-3">
+              <div class="profile_name">
+                <!-- <span id="jenisKelamin"></span>  -->
+                <span id="namaGuru"></span>
+              </div>
+              <div class="status">NIP. <span id="nipGuru"></span></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- section Utama -->
+    <section class="home-section">
+      <div class="home-content">
+        <i class="fa-sharp fa-solid fa-bars"></i>
+        <span class="text">Kriteria Ketuntasan Minimal</span>
+        <span></span>
+      </div>
+
+      <div class="konten">
+        <div
+          class="materi h-100"
+          style="
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+          "
+        >
+          <!-- <div class="card mt-2" style="border: 2px solid #B081A4;"> -->
+          <!-- <div class="card-body"> -->
+          <div class="table-responsive">
+            <center>
+              <table class="table table-striped mt-4" style="width: 65%">
+                <thead>
+                  <tr>
+                    <th class="text-center" scope="col">Keterangan</th>
+
+                    <th class="text-center" scope="col">KKM Saat Ini</th>
+
+                    <th class="text-center" scope="col">Edit Kuis/Evaluasi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th class="text-center" scope="row">Kuis 1</th>
+
+                    <td>
+                      <center><div class="kkm1 fw-bold"></div></center>
+                    </td>
+
+                    <td class="text-center">
+                      <button
+                        type="button"
+                        class="btn btn_cekJawaban px-3 btnkuis1"
+                        data-bs-toggle="modal"
+                        data-bs-target="#fromeditKKM1"
+                        style="width: fit-content"
+                      >
+                        <i class="fa-sharp fa-solid fa-square-pen"></i
+                        >&nbsp;Atur
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="text-center" scope="row">Kuis 2</th>
+
+                    <td>
+                      <center><div class="kkm2 fw-bold"></div></center>
+                    </td>
+
+                    <td class="text-center">
+                      <button
+                        type="button"
+                        class="btn btn_cekJawaban px-3 btnkuis2"
+                        data-bs-toggle="modal"
+                        data-bs-target="#fromeditKKM2"
+                        style="width: fit-content"
+                      >
+                        <i class="fa-sharp fa-solid fa-square-pen"></i
+                        >&nbsp;Atur
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="text-center" scope="row">kuis 3</th>
+
+                    <td>
+                      <center><div class="kkm3 fw-bold"></div></center>
+                    </td>
+
+                    <td class="text-center">
+                      <button
+                        type="button"
+                        class="btn btn_cekJawaban px-3 btnkuis3"
+                        data-bs-toggle="modal"
+                        data-bs-target="#fromeditKKM3"
+                        style="width: fit-content"
+                      >
+                        <i class="fa-sharp fa-solid fa-square-pen"></i
+                        >&nbsp;Atur
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th class="text-center" scope="row">Evaluasi</th>
+
+                    <td>
+                      <center><div class="evaluasi fw-bold"></div></center>
+                    </td>
+
+                    <td class="text-center">
+                      <button
+                        type="button"
+                        class="btn btn_cekJawaban px-3 btnEvaluasi"
+                        data-bs-toggle="modal"
+                        data-bs-target="#fromeditKKMEvaluasi"
+                        style="width: fit-content"
+                      >
+                        <i class="fa-sharp fa-solid fa-square-pen"></i
+                        >&nbsp;Atur
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </center>
+          </div>
+          <!-- </div> -->
+          <!-- </div> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- JS -->
+    <script src="/js/indexGuru.js"></script>
+    <script type="module" src="teskkm.js"></script>
+  </body>
+  <!-- Modal Edit Kuis 1-->
+  <div class="modal fade" id="fromeditKKM1" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="exampleModalLabel">
+            Edit KKM Kuis 1
+            <!-- <span id="kuisKeberapa"></span> -->
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="popup add">
+            <form action="">
+              <input
+                type="number"
+                name="editKKM"
+                class="form-control mb-3"
+                id="isiKKM1"
+              />
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Batal
+                </button>
+                <button type="button" class="btn btn-primary" id="setbtnKuis1">
+                  Simpan
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Edit Kuis 2-->
+  <div class="modal fade" id="fromeditKKM2" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="exampleModalLabel">
+            Edit KKM Kuis 2
+            <!-- <span id="kuisKeberapa"></span> -->
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="popup add">
+            <form action="">
+              <input
+                type="number"
+                name="editKKM"
+                class="form-control mb-3"
+                id="isiKKM2"
+              />
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Batal
+                </button>
+                <button type="button" class="btn btn-primary" id="setbtnKuis2">
+                  Simpan
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Edit Kuis 3-->
+  <div class="modal fade" id="fromeditKKM3" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="exampleModalLabel">
+            Edit KKM Kuis 3
+            <!-- <span id="kuisKeberapa"></span> -->
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="popup add">
+            <form action="">
+              <input
+                type="number"
+                name="editKKM"
+                class="form-control mb-3"
+                id="isiKKM3"
+              />
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Batal
+                </button>
+                <button type="button" class="btn btn-primary" id="setbtnKuis3">
+                  Simpan
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Edit Evaluasi-->
+  <div
+    class="modal fade"
+    id="fromeditKKMEvaluasi"
+    tabindex="-1"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="exampleModalLabel">
+            Edit KKM Evaluasi
+            <!-- <span id="kuisKeberapa"></span> -->
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="popup add">
+            <form action="">
+              <input
+                type="number"
+                name="editKKM"
+                class="form-control mb-3"
+                id="isiKKMEvaluasi"
+              />
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Batal
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="setbtnEvaluasi"
+                >
+                  Simpan
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>

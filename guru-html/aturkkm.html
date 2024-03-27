@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Siswa</title>
+
+    <!-- ICON -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="/fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="/fontawesome/css/brands.css" rel="stylesheet" />
+    <link href="/fontawesome/css/solid.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Jquery -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" charset="UTF-8"></script> -->
+
+    <!-- Boostrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Roboto+Flex:opsz,wght@8..144,500&family=Signika+Negative:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="../guru-css/css-kkm.css" />
+
+    <!--Datatable-->
+    <link
+      href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.19.1/firebase-auth.js"></script>
+
+    <link rel="icon" type="image/png" href="/img/iconWebsite.svg" />
+  </head>
+  <body>
+    <div class="hamburger click">
+      <span class="bx bx-menu"></span>
+    </div>
+    <nav class="sidebar show">
+      <!-- <div class="text">Daftar Menu</div> -->
+      <img src="/assets/img/logo/logoIKR.svg" alt="logo" class="logo" />
+      <ul>
+        <li>
+          <a href="index-guru.html" class="topik1-btn"
+            ><i class="bx bxs-group"></i>Data Siswa
+          </a>
+        </li>
+        <li>
+          <a href="#" class="topik1-btn"
+            ><i class="bx bx-book"></i>Lembar Kerja
+            <span class="bx bx-caret-down first"></span>
+          </a>
+          <ul class="topik1-show">
+            <li><a href="hasil-menanya.html">Menanya</a></li>
+            <li><a href="hasil-mengomunikasi.html">Mengomunikasikan</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="hasil-kuis.html" class="topik2-btn"
+            ><i class="bx bx-list-check"></i>Hasil Kuis
+          </a>
+        </li>
+        <li>
+          <a href="hasil-evaluasi.html" class="topik3-btn"
+            ><i class="bx bx-list-check"></i>Hasil Evaluasi
+          </a>
+        </li>
+
+        <li class="active">
+          <a href="#" class="eva-btn"
+            ><i class="bx bxs-cog"></i>Pengaturan KKM
+          </a>
+        </li>
+        <li id="logoutBtn" class="keluar-btn">
+          <a> <span class="bx bxs-exit"></span>Keluar </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Header -->
+    <header>
+      <a href="page-siswa.html" class="user">
+        <h6><span id="user-nama"></span></h6>
+        <abbr title="profil">
+          <img src="/assets/img/logo/user-log.svg" alt="Logo" />
+        </abbr>
+      </a>
+    </header>
+
+    <div class="main-content">
+      <div class="bglatar">
+        <div class="isikonten">
+          <section class="home-section">
+            <div class="konten">
+          
+                <!-- <div class="card mt-2" style="border: 2px solid #B081A4;"> -->
+                <!-- <div class="card-body"> -->
+                <div class="table-responsive">
+                  <center>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th class="text-center" scope="col">Nama</th>
+
+                          <th class="text-center" scope="col">Nilai KKM</th>
+
+                          <th class="text-center" scope="col">Aksi</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th class="text-center" scope="row">Kuis 1</th>
+
+                          <td>
+                            <center><div class="kkm1 fw-bold"></div></center>
+                          </td>
+
+                          <td class="text-center">
+                            <button
+                              type="button"
+                              class="btn-ubahkkm"
+                              data-bs-toggle="modal"
+                              data-bs-target="#fromeditKKM1"
+                            >
+                              <i class="fa-sharp fa-solid fa-square-pen"></i
+                              >&nbsp;Ubah Nilai KKM
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">Kuis 2</th>
+
+                          <td>
+                            <center><div class="kkm2 fw-bold"></div></center>
+                          </td>
+
+                          <td class="text-center">
+                            <button
+                              type="button"
+                              class="btn-ubahkkm"
+                              data-bs-toggle="modal"
+                              data-bs-target="#fromeditKKM2"
+                            >
+                              <i class="fa-sharp fa-solid fa-square-pen"></i
+                              >&nbsp;Ubah Nilai KKM
+                            </button>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th class="text-center" scope="row">kuis 3</th>
+
+                          <td>
+                            <center><div class="kkm3 fw-bold"></div></center>
+                          </td>
+
+                          <td class="text-center">
+                            <button
+                              type="button"
+                              class="btn-ubahkkm"
+                              data-bs-toggle="modal"
+                              data-bs-target="#fromeditKKM3"
+                            >
+                              <i class="fa-sharp fa-solid fa-square-pen"></i
+                              >&nbsp;Ubah Nilai KKM
+                            </button>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th class="text-center" scope="row">Evaluasi</th>
+
+                          <td>
+                            <center>
+                              <div class="evaluasi fw-bold"></div>
+                            </center>
+                          </td>
+
+                          <td class="text-center">
+                            <button
+                              type="button"
+                              class="btn-ubahkkm"
+                              data-bs-toggle="modal"
+                              data-bs-target="#fromeditKKMEvaluasi"
+                            >
+                              <i class="fa-sharp fa-solid fa-square-pen"></i
+                              >&nbsp;Ubah Nilai KKM
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </center>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- DT Bootsraps -->
+    <script src=" https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- CSS DT  -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"
+      type="text/css"
+    ></script>
+    <script
+      src="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css"
+      type="text/css"
+    ></script>
+
+    <script type="module" src="../assets/js/guru/aturkkm.js"></script>
+    <script>
+      // sidebar terbuka ketika layar lebar
+      $(document).ready(function () {
+        if ($(window).width() > 768) {
+          $(".hamburger").addClass("click");
+          $(".sidebar").addClass("show");
+        }
+      });
+      // button menampilkan sidebar
+      $(".hamburger").click(function () {
+        $(this).toggleClass("click");
+        $(".sidebar").toggleClass("show");
+      });
+      // js untuk menampilkan submenu pada sidebar
+      $(".topik1-btn").click(function () {
+        $("nav ul .topik1-show").toggleClass("show");
+        $("nav ul .first").toggleClass("rotate");
+      });
+      $(".topik2-btn").click(function () {
+        $("nav ul .topik2-show").toggleClass("show1");
+        $("nav ul .second").toggleClass("rotate");
+      });
+      $(".topik3-btn").click(function () {
+        $("nav ul .topik3-show").toggleClass("show2");
+        $("nav ul .three").toggleClass("rotate");
+      });
+
+      $("nav ul li").click(function () {
+        $(this).addClass("active").siblings().removeClass("active");
+      });
+      $("nav ul ul li a").click(function () {
+        $(this).addClass("active").siblings().removeClass("active");
+      });
+      // Menampilkan submenu .topik1-show secara default saat halaman dimuat
+      // $(".topik1-show").addClass("show");
+    </script>
+    <script>
+      // Ambil data nama dari localStorage
+      const nama = localStorage.getItem("nama");
+
+      // Periksa apakah data nama ada
+      if (nama) {
+        const namaSpan = document.getElementById("user-nama");
+        namaSpan.textContent = nama; // Memasukkan nama ke dalam elemen span
+      }
+    </script>
+
+    <script>
+      // Menambahkan event listener untuk tombol keluar
+      document.addEventListener("DOMContentLoaded", function () {
+        const logoutButton = document.getElementById("logoutBtn");
+
+        logoutButton.addEventListener("click", function () {
+          Swal.fire({
+            title: "Keluar Akun",
+            text: "Anda yakin ingin keluar akun?",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Ya, Keluar",
+            cancelButtonText: "Batal",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location = "../login-guru.html";
+              localStorage.removeItem("nama");
+              localStorage.removeItem("nisns");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+  <!-- Modal Edit Kuis 1-->
+  <div class="modal fade" id="fromeditKKM1" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="exampleModalLabel">
+            KKM Kuis 1
+            <!-- <span id="kuisKeberapa"></span> -->
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="popup add">
+            <form action="">
+              <input
+                type="number"
+                name="editKKM"
+                class="form-control mb-3"
+                id="isiKKM1"
+              />
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Batal
+                </button>
+                <button type="button" class="btn btn-primary" id="setbtnKuis1">
+                  Simpan
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Edit Kuis 2-->
+  <div class="modal fade" id="fromeditKKM2" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="exampleModalLabel">
+            KKM Kuis 2
+            <!-- <span id="kuisKeberapa"></span> -->
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="popup add">
+            <form action="">
+              <input
+                type="number"
+                name="editKKM"
+                class="form-control mb-3"
+                id="isiKKM2"
+              />
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Batal
+                </button>
+                <button type="button" class="btn btn-primary" id="setbtnKuis2">
+                  Simpan
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Edit Kuis 3-->
+  <div class="modal fade" id="fromeditKKM3" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="exampleModalLabel">
+            KKM Kuis 3
+            <!-- <span id="kuisKeberapa"></span> -->
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="popup add">
+            <form action="">
+              <input
+                type="number"
+                name="editKKM"
+                class="form-control mb-3"
+                id="isiKKM3"
+              />
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Batal
+                </button>
+                <button type="button" class="btn btn-primary" id="setbtnKuis3">
+                  Simpan
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Edit Evaluasi-->
+  <div
+    class="modal fade"
+    id="fromeditKKMEvaluasi"
+    tabindex="-1"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold" id="exampleModalLabel">
+            KKM Evaluasi
+            <!-- <span id="kuisKeberapa"></span> -->
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="popup add">
+            <form action="">
+              <input
+                type="number"
+                name="editKKM"
+                class="form-control mb-3"
+                id="isiKKMEvaluasi"
+              />
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Batal
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="setbtnEvaluasi"
+                >
+                  Simpan
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>

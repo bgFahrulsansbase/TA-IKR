@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Kuis 1 | IKR</title>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      type="x-icon"
+      href="../assets/img/logo/iconwebIKR.svg"
+    />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ICON -->
+    <link href="/fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="/fontawesome/css/brands.css" rel="stylesheet" />
+    <link href="/fontawesome/css/solid.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Jquery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      charset="UTF-8"
+    ></script>
+
+    <!-- Boostrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+
+    <!-- Mathjax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/startup.js"
+      integrity="sha512-TVq6RFk599KMqPh7Ri0yEAxHbJ0dcxSSPgvMuzQUg0wu4z+X7z2PsibMbbzAq/AHloHdxMW0FdvKv9k4s8niuA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"
+    ></script>
+
+    <!-- css -->
+    <!-- <link href="/css/Materi/materiIndex.css" rel="stylesheet" />
+    <link href="/css/materiResponsive.css" rel="stylesheet" /> -->
+
+    <!-- <link href="../assets/css/css-kuis-pilgan.css" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="../assets/css/css-kuis-pilgan.css" />
+
+    <!-- <link href="/css/materiResponsive.css" rel="stylesheet" /> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+    <!-- sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <section class="home-sectionKuis w-100 h-100">
+      <!-- ======= Header ======= -->
+      <header id="header" class="fixed-top d-flex align-items-center">
+        <div
+          class="container d-flex align-items-center justify-content-between"
+        >
+          <a href="A-kuis.html"
+            ><button class="kembali-btn">
+              <i class="fa-solid fa-backward-step"></i>&nbsp;Kembali
+            </button></a
+          >
+        </div>
+      </header>
+      <div class="kontenKuis overflow-auto">
+        <div class="mx-3 row my-3">
+          <div class="col-md-9">
+            <div class="card ms-2 my-2">
+              <div class="card-header d-flex justify-content-between">
+                <div class="card-header-2 flex-grow-1">
+                  Soal Nomor <span class="nomor-soal"></span> Dari 10
+                </div>
+                <p class="sisa-wkt">sisa waktu</p>
+                <div class="timer-soal text-center"></div>
+              </div>
+              <div class="card-body w-100">
+                <div class="pilihan-ganda">
+                  <!-- soal di ambil dari firebase -->
+                </div>
+
+                <div class="d-md-flex justify-content-between">
+                  <button class="btn kembali-evaluasi">Soal Sebelumnya</button>
+                  <button class="btn lanjut-evaluasi">Soal Selanjutnya</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card ms-2 my-2">
+              <div class="card-header">Nomor Soal</div>
+              <div class="card-body">
+                <div class="nomorSoal p-1">
+                  <div class="isi-peta">
+                    <div class="kolom-peta mb-2">
+                      <button class="kotak-soal-evaluasi soal-sedang-dibuka">
+                        1
+                      </button>
+                      <button class="kotak-soal-evaluasi">2</button>
+                      <button class="kotak-soal-evaluasi">3</button>
+                      <button class="kotak-soal-evaluasi">4</button>
+                      <button class="kotak-soal-evaluasi">5</button>
+                    </div>
+                    <div class="kolom-peta mb-2">
+                      <button class="kotak-soal-evaluasi">6</button>
+                      <button class="kotak-soal-evaluasi">7</button>
+                      <button class="kotak-soal-evaluasi">8</button>
+                      <button class="kotak-soal-evaluasi">9</button>
+                      <button class="kotak-soal-evaluasi">10</button>
+                    </div>
+                  </div>
+                  <div class="d-md-flex">
+                    <button class="btn_cekJawaban px-3" id="submit-evaluasi">
+                      <b>Selesai</b>
+                    </button>
+                  </div>
+                  <br />
+                  <div class="petunjuk-peta">
+                    <h6>Keterangan :</h6>
+                    <div class="sudah-dijawab d-md-flex my-2">
+                      <div class="kode-sudah-dijawab"></div>
+                      <div class="mt-2 mx-2">Sudah dijawab</div>
+                    </div>
+                    <div class="belum-dijawab d-md-flex my-2">
+                      <div class="kode-belum-dijawab"></div>
+                      <div class="mt-2 mx-2">Belum dijawab</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      charset="UTF-8"
+    ></script>
+
+    <script>
+      MathJax = {
+        loader: { load: ["input/asciimath", "output/chtml", "ui/menu"] },
+        asciimath: {
+          delimiters: [
+            ["$", "$"],
+            ["`", "`"],
+          ],
+        },
+      };
+    </script>
+
+    <!-- JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="module" src="../assets/js/kuis.js"></script>
+    <script src="../assets/js/waktuMundur.js"></script>
+    <script>
+      countdown(0, 20);
+    </script>
+    <script>
+      const kembaliBtn = document.querySelector(".kembali-btn");
+
+      kembaliBtn.addEventListener("click", function (event) {
+        event.preventDefault(); // Mencegah tindakan default dari link
+
+        Swal.fire({
+          title: "Kuis belum selesai",
+          text: "Yakin ingin meninggalkan kuis? jawaban tidak tersimpan",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Ya",
+          cancelButtonText: "Tidak",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Jika pengguna mengonfirmasi, arahkan ke halaman tujuan (A-kuis.html)
+            window.location.href = "A-kuis.html";
+            sessionStorage.removeItem("waktu");
+          }
+        });
+      });
+    </script>
+  </body>
+  <!-- Isi ModalModal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            Petunjuk Pengerjaan
+          </h1>
+        </div>
+        <!-- <div class="modal-body">
+          <ol>
+            <li class="lh-lg">
+              Kuis 1 terdiri dari 10 soal berupa pilihan ganda
+            </li>
+            <li class="lh-lg">Setiap soal memiliki bobot nilai sebesar 10</li>
+            <li class="lh-lg">
+              Jawablah soal dengan menekan pilihan jawaban yang dianggap benar
+            </li>
+            <li class="lh-lg">
+              Waktu pengerjaan adalah 30 menit. Jika waktu pengerjaan habis,
+              maka tampilan akan beralih ke halaman hasil
+            </li>
+            <li class="lh-lg">
+              Setelah semua pertanyaan selesai dijawab, tekan tombol "Selesai"
+              dan halaman hasil akan muncul
+            </li>
+            <li class="lh-lg">
+              Selesaikan semua soal sebelum waktu habis karena jika waktu habis
+              maka secara otomatis kuis akan tertutup
+            </li>
+          </ol>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Tutup
+          </button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</html>
