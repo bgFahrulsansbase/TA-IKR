@@ -153,4 +153,30 @@ th {
     /* border: 2px red solid;  */
     width: auto;
   }
+  .bglatar {
+    background-color: #fff;
+    background-image: none;
+    padding: 20px 30px;
+    box-shadow: none;
+    height: 100vh;
+    width: auto;
+    border-radius: 30px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .bg-card {
+    padding: 0px;
+    height: 90vh;
+    border-radius: 10px;
+    overflow-y: auto;
+
+    border-top: #eee 3px solid;
+    /* border-bottom: #eee 3px solid; */
+  }
+  .card {
+    /* margin: 10px; */
+    padding: 0px;
+    /* border-radius: 50px; */
+    border: none;
+  }
 }
