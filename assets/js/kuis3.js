@@ -153,13 +153,13 @@ function hasil() {
         const dataKKM = snapshot.val();
         const ketLulus = `<div class="card-body-ketLulus">
         <div class="text-display">
-        <p><b>Selamat!</b> nilai Anda sangat bagus, silahkan melanjutkan evaluasi.</p>
+        <p><b>Selamat!</b> nilai Anda sangat bagus, silahkan melanjutkan ke halaman evaluasi.</p>
         </div>
         </div>`;
 
         const ketTDKLulus = `<div class="card-body-ketTDKLulus">
         <div class="text-display">
-        <p><b>Maaf,</b> nilai Anda di bawah KKM (<span>${dataKKM.kkm}</span>)  Silahkan belajar lagi dan tetap semangat!</p>   
+        <p><b>Maaf,</b> nilai Anda di bawah KKM (<span>${dataKKM.kkm}</span>)  Silahkan pelajari kembali materi Topik C "Indonesiaku Kaya Alamnya" dan tetap semangat!</p>   
         </div>
         </div>`;
 
