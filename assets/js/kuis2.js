@@ -157,7 +157,7 @@ function hasil() {
 
         const ketTDKLulus = `<div class="card-body-ketTDKLulus">
         <div class="text-display">
-        <p><b>Maaf,</b> nilai Anda di bawah KKM (<span>${dataKKM.kkm}</span>)  Silahkan belajar lagi dan tetap semangat!</p>   
+        <p><b>Maaf,</b> nilai Anda di bawah KKM (<span>${dataKKM.kkm}</span>)  Silahkan pelajari kembali materi Topik B "Indonesiaku Kaya Hayatinya" dan tetap semangat!</p>   
         </div>
         </div>`;
 
