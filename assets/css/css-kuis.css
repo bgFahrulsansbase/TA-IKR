@@ -487,6 +487,7 @@ li {
   background-image: linear-gradient(to right, #ff0000, #e40000);
   color: #fff; /* Atur warna teks */
   text-align: center; /* Atur teks ke tengah secara horizontal */
+  margin-bottom: -10px;
 }
 
 @media (max-width: 600px) {
@@ -552,7 +553,7 @@ li {
     font-size: small;
     /* margin: 0px; */
     padding: 6px; /* Atur padding sesuai kebutuhan */
-     margin-bottom: -10px;
+     
   }
   .card-hasil {
     height: 78vh;
