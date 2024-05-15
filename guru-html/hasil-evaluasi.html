@@ -87,7 +87,7 @@
           </a>
           <ul class="topik1-show">
             <li><a href="hasil-menanya.html">Menanya</a></li>
-            <li><a href="ha">Mengomunikasikan</a></li>
+            <li><a href="hasil-mengomunikasi.html">Mengomunikasikan</a></li>
           </ul>
         </li>
         <li>
@@ -229,7 +229,41 @@
         namaSpan.textContent = nama; // Memasukkan nama ke dalam elemen span
       }
     </script>
-
+    <script>
+      // sidebar terbuka ketika layar lebar
+      $(document).ready(function () {
+        if ($(window).width() > 768) {
+          $(".hamburger").addClass("click");
+          $(".sidebar").addClass("show");
+        }
+      });
+      // button menampilkan sidebar
+      $(".hamburger").click(function () {
+        $(this).toggleClass("click");
+        $(".sidebar").toggleClass("show");
+      });
+      // js untuk menampilkan submenu pada sidebar
+      $(".topik1-btn").click(function () {
+        $("nav ul .topik1-show").toggleClass("show");
+        $("nav ul .first").toggleClass("rotate");
+      });
+      $(".topik2-btn").click(function () {
+        $("nav ul .topik2-show").toggleClass("show1");
+        $("nav ul .second").toggleClass("rotate");
+      });
+      $(".topik3-btn").click(function () {
+        $("nav ul .topik3-show").toggleClass("show2");
+        $("nav ul .three").toggleClass("rotate");
+      });
+      $("nav ul li").click(function () {
+        $(this).addClass("active").siblings().removeClass("active");
+      });
+      $("nav ul ul li a").click(function () {
+        $(this).addClass("active").siblings().removeClass("active");
+      });
+      // Menampilkan submenu .topik1-show secara default saat halaman dimuat
+      // $(".topik1-show").addClass("show");
+    </script>
     <script>
       // Menambahkan event listener untuk tombol keluar
       document.addEventListener("DOMContentLoaded", function () {
@@ -255,3 +289,4 @@
     <script type="module" src="../assets/js/guru/db-hasileva.js"></script>
   </body>
 </html>
+
