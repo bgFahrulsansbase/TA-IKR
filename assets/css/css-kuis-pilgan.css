@@ -97,19 +97,20 @@ body {
   color: white !important;
 }
 .kembali-evaluasi {
-  /* border: #444444 2px solid; */
-  background-color: #eee;
+  /* border: red 2px solid; */
+  background-color: #e96565;
+  color: #fff;
 }
 .kembali-evaluasi:hover {
-  background-color: #515878;
-  color: #eee;
+  background-color: #ff0000;
+  color: #fff;
 }
 .lanjut-evaluasi {
-  background-color: #666f91;
-  color: #eee;
+  background-color: #2db42d;
+  color: #fff;
 }
 .lanjut-evaluasi:hover {
-  background-color: #515878;
+  background-color: green;
   color: #fff;
 }
 

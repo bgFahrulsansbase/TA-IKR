@@ -131,7 +131,7 @@ header {
   position: fixed;
   width: 250px;
   height: 100vh;
-  left: -250px;
+  left: -2 50px;
   /* background: #3b3f55; */
   background-color: #fff;
   transition: left 0.4s ease;
