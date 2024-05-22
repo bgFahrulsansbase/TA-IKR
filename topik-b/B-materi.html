@@ -778,25 +778,6 @@
             sebelum lanjut ke topik C.
           </p>
         </div>
-        <!-- <section>
-          <div class="footer">
-            <a href="B-pendahuluan.html">
-              <button id="prevPage">Sebelumnya</button>
-            </a>
-            <a href="B-pendahuluan.html">
-              <button id="page1">1</button>
-            </a>
-            <a href="#">
-              <button id="page2" class="active">2</button>
-            </a>
-            <a href="B-kuis.html">
-              <button id="page3">3</button>
-            </a>
-            <a href="B-kuis.html">
-              <button id="nextPage">Selanjutnya</button>
-            </a>
-          </div>
-        </section> -->
       </div>
     </div>
     <script>
@@ -1020,50 +1001,69 @@
         // Referensi
         const mengomunikasikan2 = document.getElementById("mengomunikasikan2");
         const btnKirim = document.getElementById("btnKirim");
+
+        // Ambil nilai jawaban dari Firebase saat halaman dimuat
+        const userNISN = localStorage.getItem("nisn");
+        const dbRef = ref(
+          db,
+          "UserSiswa/" + userNISN + "/mengomunikasikan/mengomunikasikan-2"
+        );
+
+        get(dbRef)
+          .then((snapshot) => {
+            const data = snapshot.val();
+            if (data && data.jawaban) {
+              mengomunikasikan2.value = data.jawaban;
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+
+        function simpanJawaban() {
+          var jawaban = mengomunikasikan2.value;
+
+          if (jawaban.trim() !== "") {
+            const dbRef = ref(
+              db,
+              "UserSiswa/" + userNISN + "/mengomunikasikan/mengomunikasikan-2"
+            );
+
+            set(dbRef, {
+              jawaban: jawaban,
+              tanggal: new Date().toLocaleDateString(),
+              waktu: new Date().toLocaleTimeString(),
+            })
+              .then(() => {
+                Swal.fire({
+                  icon: "success",
+                  title: "Jawaban Terkirim!",
+                  text: "Jawaban Anda berhasil disimpan di database.",
+                });
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                Swal.fire({
+                  icon: "error",
+                  title: "Gagal!",
+                  text: "Terjadi kesalahan saat menyimpan jawaban.",
+                });
+              });
+          } else {
+            Swal.fire({
+              icon: "warning",
+              title: "Peringatan!",
+              text: "Isi jawaban terlebih dahulu sebelum mengirim.",
+            });
+          }
+        }
+
+        // Tambahkan event listener untuk tombol kirim
+        btnKirim.addEventListener("click", simpanJawaban);
       });
 
-      function simpanJawaban() {
-        var jawaban = mengomunikasikan2.value;
-
-        if (jawaban.trim() !== "") {
-          const userNISN = localStorage.getItem("nisn");
-          const dbRef = ref(
-            db,
-            "UserSiswa/" + userNISN + "/mengomunikasikan/mengomunikasikan-2"
-          );
-
-          set(dbRef, {
-            jawaban: jawaban,
-            tanggal: new Date().toLocaleDateString(),
-            waktu: new Date().toLocaleTimeString(),
-          })
-            .then(() => {
-              Swal.fire({
-                icon: "success",
-                title: "Jawaban Terkirim!",
-                text: "Jawaban Anda berhasil disimpan di database.",
-              });
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-              Swal.fire({
-                icon: "error",
-                title: "Gagal!",
-                text: "Terjadi kesalahan saat menyimpan jawaban.",
-              });
-            });
-        } else {
-          Swal.fire({
-            icon: "warning",
-            title: "Peringatan!",
-            text: "Isi jawaban terlebih dahulu sebelum mengirim.",
-          });
-        }
-      }
-      // Tambahkan event listener untuk tombol kirim
-      btnKirim.addEventListener("click", simpanJawaban);
-
       // kode js menanya
+      //KODE MENANYA
       document.addEventListener("DOMContentLoaded", function () {
         // Inisialisasi tombol kirim untuk Mari Menanya
         const btnKirimMenanya = document.getElementById("btnKirimMenanya");
@@ -1075,6 +1075,9 @@
             simpanPertanyaanJawaban(menanyaIndex);
           }
         });
+
+        // Panggil fungsi untuk menetapkan nilai jawaban dari Firebase ke placeholder setelah halaman dimuat
+        setPlaceholderFromFirebase();
       });
 
       function simpanPertanyaanJawaban(menanyaIndex) {
@@ -1091,14 +1094,22 @@
         for (let subIndex = 1; subIndex <= 3; subIndex++) {
           const pertanyaanId = `menanya${menanyaIndex}_${subIndex}`;
           const jawabanId = `j${pertanyaanId}`;
-          const pertanyaan = document.getElementById(pertanyaanId).value;
-          const jawaban = document.getElementById(jawabanId).value;
+          const pertanyaanInput = document.getElementById(pertanyaanId);
+          const jawabanInput = document.getElementById(jawabanId);
+
+          // Ambil nilai pertanyaan & jawaban dari input
+          const pertanyaan = pertanyaanInput.value;
+          const jawaban = jawabanInput.value;
 
           // Pastikan pertanyaan dan jawaban tidak kosong
           if (pertanyaan.trim() !== "" && jawaban.trim() !== "") {
             // Simpan pertanyaan dan jawaban dalam objek
             dataToSave[`pertanyaan${subIndex}`] = pertanyaan;
             dataToSave[`jawaban${subIndex}`] = jawaban;
+
+            // Update placeholder dengan jawaban yang disimpan
+            pertanyaanInput.placeholder = pertanyaan;
+            jawabanInput.placeholder = jawaban;
           } else {
             Swal.fire({
               icon: "warning",
@@ -1127,6 +1138,43 @@
             });
           });
       }
+
+      function setPlaceholderFromFirebase() {
+        const userNISN = localStorage.getItem("nisn");
+        const dbRef = ref(db, `UserSiswa/${userNISN}/menanya`);
+
+        // Ambil data dari Firebase
+        get(dbRef)
+          .then((snapshot) => {
+            if (snapshot.exists()) {
+              const data = snapshot.val();
+
+              // Loop melalui setiap soal
+              for (let menanyaIndex = 2; menanyaIndex <= 2; menanyaIndex++) {
+                // Loop melalui setiap subsoal
+                for (let subIndex = 1; subIndex <= 3; subIndex++) {
+                  const pertanyaanId = `menanya${menanyaIndex}_${subIndex}`;
+                  const jawabanId = `jmenanya${menanyaIndex}_${subIndex}`;
+                  const pertanyaanInput = document.getElementById(pertanyaanId);
+                  const jawabanInput = document.getElementById(jawabanId);
+                  const pertanyaan =
+                    data[`menanya-${menanyaIndex}`][`pertanyaan${subIndex}`];
+                  const jawaban =
+                    data[`menanya-${menanyaIndex}`][`jawaban${subIndex}`];
+
+                  // Set nilai pertanyaan dan jawaban sebagai placeholder
+                  if (pertanyaan && jawaban) {
+                    pertanyaanInput.placeholder = pertanyaan;
+                    jawabanInput.placeholder = jawaban;
+                  }
+                }
+              }
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
     </script>
     <script>
       // Fungsi untuk melompat ke detik tertentu dalam video
@@ -1143,4 +1191,3 @@
     </script>
   </body>
 </html>
-
